@@ -1,9 +1,20 @@
 
-import type { DefineComponent, VNode } from "@vue/runtime-dom"
-import type { DataTableHeader, DataOptions } from "vuetify"
+import type {
+  DataTableHeader,
+  DataOptions,
+  CalendarTimestamp as VTimestamp,
+} from "vuetify"
+import type VueComponent from "vue"
+import type { DefineComponent, VNode } from "vue"
 type eventHandler = Function
+interface srcObject {
+  src: string
+  srcset?: string
+  lazySrc: string
+  aspect: number
+}
 
-declare module "@vue/runtime-dom" {
+declare module "vue" {
   export interface GlobalComponents {
     VApp: DefineComponent<
       {
@@ -392,7 +403,7 @@ declare module "@vue/runtime-dom" {
             parent: VueComponent
             item: { [key: keyof any]: any }
             index: number
-            select: function
+            select: (...args: any[]) => any
             selected: boolean
             disabled: boolean
           }) => VNode[]
@@ -1092,7 +1103,7 @@ declare module "@vue/runtime-dom" {
             future: boolean
             timeToY: (
               time: string | number | { hour: number; minute: number },
-              clamp: boolean = false
+              clamp: boolean
             ) => number | false
             timeDelta: (
               time: string | number | { hour: number; minute: number }
@@ -1133,7 +1144,7 @@ declare module "@vue/runtime-dom" {
             future: boolean
             timeToY: (
               time: string | number | { hour: number; minute: number },
-              clamp: boolean = false
+              clamp: boolean
             ) => number | false
             timeDelta: (
               time: string | number | { hour: number; minute: number }
@@ -1309,7 +1320,7 @@ declare module "@vue/runtime-dom" {
             future: boolean
             timeToY: (
               time: string | number | { hour: number; minute: number },
-              clamp: boolean = false
+              clamp: boolean
             ) => number | false
             timeDelta: (
               time: string | number | { hour: number; minute: number }
@@ -2169,7 +2180,7 @@ declare module "@vue/runtime-dom" {
             parent: VueComponent
             item: { [key: keyof any]: any }
             index: number
-            select: function
+            select: (...args: any[]) => any
             selected: boolean
             disabled: boolean
           }) => VNode[]
@@ -2748,6 +2759,7 @@ declare module "@vue/runtime-dom" {
             header: DataTableHeader
           }) => VNode[]
           /** Slot to replace the default `v-simple-checkbox` in header */
+          //@ts-expect-error
           "header.data-table-select": (args: {
             isMobile: boolean
             props: { value: boolean; indeterminate: boolean }
@@ -2773,6 +2785,7 @@ declare module "@vue/runtime-dom" {
             index: number
           }) => VNode[]
           /** Slot to replace the default `v-icon` used when expanding rows */
+          //@ts-expect-error
           "item.data-table-expand": (args: {
             expand: (v: boolean) => void
             index: number
@@ -2784,6 +2797,7 @@ declare module "@vue/runtime-dom" {
             headers: DataTableHeader[]
           }) => VNode[]
           /** Slot to replace the default `v-simple-checkbox` used when selecting rows */
+          //@ts-expect-error
           "item.data-table-select": (args: {
             expand: (v: boolean) => void
             index: number
@@ -4436,7 +4450,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
             parent: VueComponent
             item: { [key: keyof any]: any }
             index: number
-            select: function
+            select: (...args: any[]) => any
             selected: boolean
             disabled: boolean
           }) => VNode[]
@@ -4905,8 +4919,8 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
             click: (i: number) => void
             index: number
             isFilled: boolean
-            isHalfFilled: ?boolean
-            isHalfHovered: ?boolean
+            isHalfFilled: boolean | undefined
+            isHalfHovered: boolean | undefined
             isHovered: boolean
             value: number
           }) => VNode[]
@@ -5115,7 +5129,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
             parent: VueComponent
             item: { [key: keyof any]: any }
             index: number
-            select: function
+            select: (...args: any[]) => any
             selected: boolean
             disabled: boolean
           }) => VNode[]

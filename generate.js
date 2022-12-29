@@ -46,8 +46,11 @@ function getSlotPropType(type) {
     .replace(/\/\/.*/, "")
     .replaceAll("):", ")=>")
     .replace(/(aria-[a-z]*):/g, '"$1":')
+    .replace(/ = \w*/g, '') // remove default values
+    .replaceAll("function", "Function")
     .replaceAll("Function", "(...args: any[]) => any")
-    .replaceAll("object", "{ [key: keyof any]: any }");
+    .replaceAll("object", "{ [key: keyof any]: any }")
+    .replaceAll("?boolean", "boolean | undefined");
 }
 
 function getSlotName(name) {
@@ -55,6 +58,9 @@ function getSlotName(name) {
     return "[name:`header.${string}`]";
   } else if (name === "item.<name>") {
     return "[name:`item.${string}`]";
+  } else if (name.startsWith("item.data-table") || name.startsWith("header.data-table")) {
+    // Ts doesn't allow overriding template literals with more specific keys/values.
+    return `//@ts-expect-error\n '${name}'`;
   }
   return `'${name}'`;
 }
@@ -105,11 +111,18 @@ console.log();
 console.log(
   prettier.format(
     `
-import type { DefineComponent, VNode } from '@vue/runtime-dom'
-import type { DataTableHeader, DataOptions } from 'vuetify'
+import type { DataTableHeader, DataOptions, CalendarTimestamp as VTimestamp } from 'vuetify'
+import type VueComponent from "vue"
+import type { DefineComponent, VNode } from "vue"
 type eventHandler = Function
+interface srcObject {
+  src: string
+  srcset?: string
+  lazySrc: string
+  aspect: number
+}
 
-declare module '@vue/runtime-dom' {
+declare module 'vue' {
   export interface GlobalComponents {
     ${types}
   }
