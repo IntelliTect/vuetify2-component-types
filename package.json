@@ -1,0 +1,17 @@
+{
+  "name": "vuetify2-component-types",
+  "version": "2.6.0",
+  "description": "Component types for Volar intellisense with Vuetify 2 and Vue 2.7",
+  "type": "module",
+  "types": "index.d.ts",
+  "scripts": {
+    "generate": "node ./generate.js > ./index.d.ts",
+    "prepack": "generate"
+  },
+  "author": "ascott18, kingyue737",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.8.1",
+    "vuetify": "2.6.13"
+  }
+}
