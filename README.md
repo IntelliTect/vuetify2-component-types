@@ -10,7 +10,6 @@ This package includes generated global component types for Vuetify ~2.6.13 and V
     ``` json
     {
       "compilerOptions": {
-        //...
         "types": ["vuetify2-component-types"],
       }
     },
