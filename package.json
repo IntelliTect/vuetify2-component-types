@@ -1,6 +1,6 @@
 {
   "name": "vuetify2-component-types",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "description": "Component types for Volar intellisense with Vuetify 2 and Vue 2.7",
   "type": "module",
   "types": "index.d.ts",
@@ -8,6 +8,7 @@
     "generate": "node ./generate.js > ./index.d.ts && npx tsc --noEmit",
     "prepack": "generate"
   },
+  "repository": "https://github.com/IntelliTect/vuetify2-component-types",
   "author": "ascott18, kingyue737",
   "license": "MIT",
   "devDependencies": {
