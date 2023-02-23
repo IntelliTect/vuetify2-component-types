@@ -77,7 +77,7 @@ const types = webTypes.contributions.html.tags
             getDescription(attr) +
             `${attr.name.replace(/-./g, (x) => x[1].toUpperCase())}?: ${getType(
               attr.value.type
-            )}`
+            )} | null`
         )
         .join("\n") +
       "}" +
