@@ -14,6 +14,9 @@ interface srcObject {
   aspect: number
 }
 
+type ValidationResult = string | boolean
+type ValidationRule = ValidationResult | ((value: any) => ValidationResult)
+
 declare module "vue" {
   export interface GlobalComponents {
     VApp: DefineComponent<
@@ -338,7 +341,7 @@ declare module "vue" {
         /** Adds a border radius to the input */
         rounded?: boolean | null
         /** Accepts a mixed array of types `function`, `boolean` and `string`. Functions pass an input value as an argument and must return either `true` / `false` or a `string` containing an error message. The input field will enter an error state if a function returns (or any value in the array contains) `false` or is a `string` */
-        rules?: any[] | null
+        rules?: ValidationRule[] | null
         /** Search value. Can be used with `.sync` modifier. */
         searchInput?: string | null
         /** Round if `outlined` and increase `border-radius` if `filled`. Must be used with either `outlined` or `filled` */
@@ -1786,7 +1789,7 @@ declare module "vue" {
         /** Applies the [v-ripple](/directives/ripple) directive. */
         ripple?: boolean | object | null
         /** Accepts a mixed array of types `function`, `boolean` and `string`. Functions pass an input value as an argument and must return either `true` / `false` or a `string` containing an error message. The input field will enter an error state if a function returns (or any value in the array contains) `false` or is a `string` */
-        rules?: any[] | null
+        rules?: ValidationRule[] | null
         /** Puts the input in a manual success state */
         success?: boolean | null
         /** Puts the input in a success state and passes through custom success messages. */
@@ -2120,7 +2123,7 @@ declare module "vue" {
         /** Adds a border radius to the input */
         rounded?: boolean | null
         /** Accepts a mixed array of types `function`, `boolean` and `string`. Functions pass an input value as an argument and must return either `true` / `false` or a `string` containing an error message. The input field will enter an error state if a function returns (or any value in the array contains) `false` or is a `string` */
-        rules?: any[] | null
+        rules?: ValidationRule[] | null
         /** Use the **.sync** modifier to catch user input from the search input */
         searchInput?: string | null
         /** Round if `outlined` and increase `border-radius` if `filled`. Must be used with either `outlined` or `filled` */
@@ -3273,7 +3276,7 @@ declare module "vue" {
         /** Adds a border radius to the input */
         rounded?: boolean | null
         /** Accepts a mixed array of types `function`, `boolean` and `string`. Functions pass an input value as an argument and must return either `true` / `false` or a `string` containing an error message. The input field will enter an error state if a function returns (or any value in the array contains) `false` or is a `string` */
-        rules?: any[] | null
+        rules?: ValidationRule[] | null
         /** Round if `outlined` and increase `border-radius` if `filled`. Must be used with either `outlined` or `filled` */
         shaped?: boolean | null
         /** Sets the displayed size of selected file(s). When using **true** will default to _1000_ displaying (**kB, MB, GB**) while _1024_ will display (**KiB, MiB, GiB**). */
@@ -3683,7 +3686,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         /** Puts input in readonly state */
         readonly?: boolean | null
         /** Accepts a mixed array of types `function`, `boolean` and `string`. Functions pass an input value as an argument and must return either `true` / `false` or a `string` containing an error message. The input field will enter an error state if a function returns (or any value in the array contains) `false` or is a `string` */
-        rules?: any[] | null
+        rules?: ValidationRule[] | null
         /** Puts the input in a manual success state */
         success?: boolean | null
         /** Puts the input in a success state and passes through custom success messages. */
@@ -4396,7 +4399,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         /** Adds a border radius to the input */
         rounded?: boolean | null
         /** Accepts a mixed array of types `function`, `boolean` and `string`. Functions pass an input value as an argument and must return either `true` / `false` or a `string` containing an error message. The input field will enter an error state if a function returns (or any value in the array contains) `false` or is a `string` */
-        rules?: any[] | null
+        rules?: ValidationRule[] | null
         /** Use the **.sync** modifier to catch user input from the search input */
         searchInput?: string | null
         /** Creates a segmented button */
@@ -4708,7 +4711,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         /** Displays radio buttons in row */
         row?: boolean | null
         /** Accepts a mixed array of types `function`, `boolean` and `string`. Functions pass an input value as an argument and must return either `true` / `false` or a `string` containing an error message. The input field will enter an error state if a function returns (or any value in the array contains) `false` or is a `string` */
-        rules?: any[] | null
+        rules?: ValidationRule[] | null
         /** Puts the input in a manual success state */
         success?: boolean | null
         /** Puts the input in a success state and passes through custom success messages. */
@@ -4828,7 +4831,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         /** Puts input in readonly state */
         readonly?: boolean | null
         /** Accepts a mixed array of types `function`, `boolean` and `string`. Functions pass an input value as an argument and must return either `true` / `false` or a `string` containing an error message. The input field will enter an error state if a function returns (or any value in the array contains) `false` or is a `string` */
-        rules?: any[] | null
+        rules?: ValidationRule[] | null
         /** If greater than 0, sets step interval for ticks */
         step?: number | string | null
         /** Puts the input in a manual success state */
@@ -5080,7 +5083,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         /** Adds a border radius to the input */
         rounded?: boolean | null
         /** Accepts a mixed array of types `function`, `boolean` and `string`. Functions pass an input value as an argument and must return either `true` / `false` or a `string` containing an error message. The input field will enter an error state if a function returns (or any value in the array contains) `false` or is a `string` */
-        rules?: any[] | null
+        rules?: ValidationRule[] | null
         /** Round if `outlined` and increase `border-radius` if `filled`. Must be used with either `outlined` or `filled` */
         shaped?: boolean | null
         /** Label does not move on focus/dirty */
@@ -5244,7 +5247,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         /** Puts input in readonly state */
         readonly?: boolean | null
         /** Accepts a mixed array of types `function`, `boolean` and `string`. Functions pass an input value as an argument and must return either `true` / `false` or a `string` containing an error message. The input field will enter an error state if a function returns (or any value in the array contains) `false` or is a `string` */
-        rules?: any[] | null
+        rules?: ValidationRule[] | null
         /** If greater than 0, sets step interval for ticks */
         step?: number | string | null
         /** Puts the input in a manual success state */
@@ -5589,7 +5592,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         /** Icon to display when step has an error */
         errorIcon?: string | null
         /** Accepts a mixed array of types `function`, `boolean` and `string`. Functions pass an input value as an argument and must return either `true` / `false` or a `string` containing an error message. The input field will enter an error state if a function returns (or any value in the array contains) `false` or is a `string` */
-        rules?: any[] | null
+        rules?: ValidationRule[] | null
         /** Content to display inside step circle */
         step?: number | string | null
       },
@@ -5697,7 +5700,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         /** Applies the [v-ripple](/directives/ripple) directive. */
         ripple?: boolean | object | null
         /** Accepts a mixed array of types `function`, `boolean` and `string`. Functions pass an input value as an argument and must return either `true` / `false` or a `string` containing an error message. The input field will enter an error state if a function returns (or any value in the array contains) `false` or is a `string` */
-        rules?: any[] | null
+        rules?: ValidationRule[] | null
         /** Puts the input in a manual success state */
         success?: boolean | null
         /** Puts the input in a success state and passes through custom success messages. */
@@ -6004,7 +6007,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         /** Default row count */
         rows?: number | string | null
         /** Accepts a mixed array of types `function`, `boolean` and `string`. Functions pass an input value as an argument and must return either `true` / `false` or a `string` containing an error message. The input field will enter an error state if a function returns (or any value in the array contains) `false` or is a `string` */
-        rules?: any[] | null
+        rules?: ValidationRule[] | null
         /** Round if `outlined` and increase `border-radius` if `filled`. Must be used with either `outlined` or `filled` */
         shaped?: boolean | null
         /** Label does not move on focus/dirty */
@@ -6129,7 +6132,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         /** Adds a border radius to the input */
         rounded?: boolean | null
         /** Accepts a mixed array of types `function`, `boolean` and `string`. Functions pass an input value as an argument and must return either `true` / `false` or a `string` containing an error message. The input field will enter an error state if a function returns (or any value in the array contains) `false` or is a `string` */
-        rules?: any[] | null
+        rules?: ValidationRule[] | null
         /** Round if `outlined` and increase `border-radius` if `filled`. Must be used with either `outlined` or `filled` */
         shaped?: boolean | null
         /** Label does not move on focus/dirty */

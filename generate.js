@@ -25,7 +25,11 @@ function convertType(typeStr) {
   }
 }
 
-function getType(attrType) {
+function getPropType(attr) {
+  const attrType = attr.value.type;
+  if (attr.name == "rules" && attr.description?.includes("error message")) {
+    return "ValidationRule[]"
+  }
   if (typeof attrType === "string") {
     return convertType(attrType);
   } else {
@@ -71,16 +75,18 @@ const types = webTypes.contributions.html.tags
     (vm) =>
       vm.name +
       ": DefineComponent<{" +
+
+      // Prop types:
       vm.attributes
         .map(
           (attr) =>
             getDescription(attr) +
-            `${attr.name.replace(/-./g, (x) => x[1].toUpperCase())}?: ${getType(
-              attr.value.type
-            )} | null`
+            `${attr.name.replace(/-./g, (x) => x[1].toUpperCase())}?: ${getPropType(attr)} | null`
         )
         .join("\n") +
       "}" +
+
+      // Slot types:
       (vm.slots?.length
         ? ",{$scopedSlots: Readonly<{\n" +
           vm.slots
@@ -121,6 +127,9 @@ interface srcObject {
   lazySrc: string
   aspect: number
 }
+
+type ValidationResult = string | boolean;
+type ValidationRule = ValidationResult | ((value: any) => ValidationResult);
 
 declare module 'vue' {
   export interface GlobalComponents {
