@@ -1,6 +1,6 @@
 {
   "name": "vuetify2-component-types",
-  "version": "2.6.6",
+  "version": "2.6.7",
   "description": "Component types for Volar intellisense with Vuetify 2 and Vue 2.7",
   "type": "module",
   "types": "index.d.ts",
