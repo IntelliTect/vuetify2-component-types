@@ -6,13 +6,14 @@
   "types": "index.d.ts",
   "scripts": {
     "generate": "node ./generate.js > ./index.d.ts && npx tsc --noEmit",
-    "build": "generate",
-    "prepack": "generate"
+    "build": "npm run generate",
+    "prepack": "npm run generate"
   },
   "repository": "https://github.com/IntelliTect/vuetify2-component-types",
   "author": "ascott18, kingyue737",
   "license": "MIT",
   "devDependencies": {
+    "prettier": "^2.8.5",
     "typescript": "^4.9.5",
     "vuetify": "2.6.13"
   },

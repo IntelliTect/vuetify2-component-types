@@ -28,7 +28,7 @@ function convertType(typeStr) {
 function getPropType(attr) {
   const attrType = attr.value.type;
   if (attr.name == "rules" && attr.description?.includes("error message")) {
-    return "ValidationRule[]"
+    return "InputValidationRules"
   }
   if (typeof attrType === "string") {
     return convertType(attrType);
@@ -117,7 +117,7 @@ console.log();
 console.log(
   prettier.format(
     `
-import type { DataTableHeader, DataOptions, CalendarTimestamp as VTimestamp } from 'vuetify'
+import type { DataTableHeader, DataOptions, CalendarTimestamp as VTimestamp, InputValidationRules } from 'vuetify'
 import type VueComponent from "vue"
 import type { DefineComponent, VNode } from "vue"
 type eventHandler = Function
@@ -127,9 +127,6 @@ interface srcObject {
   lazySrc: string
   aspect: number
 }
-
-type ValidationResult = string | boolean;
-type ValidationRule = ValidationResult | ((value: any) => ValidationResult);
 
 declare module 'vue' {
   export interface GlobalComponents {
