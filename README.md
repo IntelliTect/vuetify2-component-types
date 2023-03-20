@@ -14,6 +14,30 @@ This package includes generated global component types for Vuetify ~2.6.13 and V
       }
     },
     ```
+1. Configure tsconfig's `vueCompilerOptions` for proper Volar support:
+    ``` json
+    {
+      "vueCompilerOptions": {
+        "target": 2.7,
+        "experimentalModelPropName": {
+          "input-value": {
+            "v-checkbox": true,
+            "v-switch": true,
+            "v-chip": true,
+            "v-btn": true,
+            "v-list-item": true,
+            "v-bottom-navigation": true
+          },
+          "": { "input": true },
+          "value": {
+            "input": { "type": "text" },
+            "textarea": true,
+            "select": true
+          }
+        }
+      },
+    }
+    ```
 
 ## Acknowledgements
 Most of the credit goes to [@kingyue737](https://github.com/kingyue737) who made the initial script [here](https://github.com/vuetifyjs/vuetify/issues/14798#issuecomment-1139788615).
