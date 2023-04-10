@@ -3,7 +3,6 @@ import type {
   DataTableHeader,
   DataOptions,
   CalendarTimestamp as VTimestamp,
-  InputValidationRules,
 } from "vuetify"
 import type VueComponent from "vue"
 import type { DefineComponent, VNode } from "vue"
@@ -14,6 +13,11 @@ interface srcObject {
   lazySrc: string
   aspect: number
 }
+
+export type InputValidationRule = (value: any) => string | boolean
+// We define our own InputValidationRules because vuetify incorrectly does not include
+// boolean as a valid array member in its definition of InputValidationRules.
+export type InputValidationRules = (InputValidationRule | string | boolean)[]
 
 declare module "vue" {
   export interface GlobalComponents {
