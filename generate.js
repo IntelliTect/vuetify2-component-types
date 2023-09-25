@@ -20,6 +20,8 @@ function convertType(typeStr) {
       return "Date";
     case "regexp":
       return "RegExp";
+    case "event":
+      return "Event";
     default:
       return typeStr;
   }
@@ -72,6 +74,55 @@ function getSlotName(name) {
   return `'${name}'`;
 }
 
+function splitByComma(str) {
+  const result = [];
+  let current = "";
+  let level = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    if (char === "{") {
+      level++;
+    }
+    if (char === "}") {
+      level--;
+    }
+    if (char === "," && level === 0) {
+      result.push(current);
+      current = "";
+    } else {
+      current += char;
+    }
+  }
+  result.push(current);
+  return result;
+}
+
+function getEventArguments(args) {
+  const _args = args
+    .replaceAll(':"', ":")
+    .replaceAll('",', ",")
+    .replaceAll('"}', "}")
+    .replaceAll("):", ")=>")
+    .replace(/ = \w*/g, "") // remove default values
+    .replaceAll("ClickEvent", "MouseEvent");
+
+  // event may have multiple arguments
+  const matches = splitByComma(_args)
+    .map((a, i) => `arg${i}:${convertType(a)}`)
+    .join(",");
+  return matches;
+}
+
+function getEventName(name) {
+  if (name === "<event>:row") {
+    return "[name:`${string}:row`]";
+  } else if (name.startsWith("click:row")) {
+    // Ts doesn't allow overriding template literals with more specific keys/values.
+    return `//@ts-expect-error\n '${name}'`;
+  }
+  return `'${name}'`;
+}
+
 const types = webTypes.contributions.html.tags
   .filter((vm) => !blackList.includes(vm.name))
   .map(
@@ -110,6 +161,20 @@ const types = webTypes.contributions.html.tags
             )
             .join("\n") +
           "}>}\n"
+        : ",{}") +
+      // Event types:
+      (vm.events?.length
+        ? ",{},{},{},{},{},{\n" +
+          vm.events
+            .map(
+              (event) =>
+                getDescription(event) +
+                `${getEventName(event.name)}:(${getEventArguments(
+                  event.arguments[0].type
+                )})=>void`
+            )
+            .join("\n") +
+          "}"
         : "") +
       ">"
   )

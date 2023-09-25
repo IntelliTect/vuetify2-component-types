@@ -222,6 +222,15 @@ declare module "vue" {
           /** Slot for icon at beginning of alert. */
           prepend: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** The updated bound model */
+        input: (arg0: boolean) => void
       }
     >
 
@@ -272,7 +281,7 @@ declare module "vue" {
         errorMessages?: string | any[] | null
         /** Applies the alternate filled input style */
         filled?: boolean | null
-        /** The filtering algorithm used when searching. [example](https://github.com/vuetifyjs/vuetify/blob/master/packages/vuetify/src/components/VAutocomplete/VAutocomplete.ts#L40) */
+        /** The filtering algorithm used when searching. [example](https://github.com/vuetifyjs/vuetify/blob/v2-stable/packages/vuetify/src/components/VAutocomplete/VAutocomplete.ts#L40) */
         filter?: Function | null
         /** Removes elevation (shadow) added to element when using the **solo** or **solo-inverted** props */
         flat?: boolean | null
@@ -284,7 +293,7 @@ declare module "vue" {
         hideDetails?: boolean | string | null
         /** Hides the menu when there are no options to show.  Useful for preventing the menu from opening before results are fetched asynchronously.  Also has the effect of opening the menu when the `items` array changes if not already open. */
         hideNoData?: boolean | null
-        /** Do not display in the select menu items that are already selected */
+        /** Do not display in the select menu items that are already selected. Also removes checkboxes from the list when multiple */
         hideSelected?: boolean | null
         /** Hint text */
         hint?: string | null
@@ -366,7 +375,7 @@ declare module "vue" {
         validateOnBlur?: boolean | null
         /** The input's value */
         value?: any | null
-        /** The comparison algorithm used for values. [More info](https://github.com/vuetifyjs/vuetify/blob/master/packages/vuetify/src/util/helpers.ts) */
+        /** The comparison algorithm used for values. [More info](https://github.com/vuetifyjs/vuetify/blob/v2-stable/packages/vuetify/src/util/helpers.ts) */
         valueComparator?: Function | null
       },
       {
@@ -414,6 +423,45 @@ declare module "vue" {
             disabled: boolean
           }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the input is blurred */
+        blur: (arg0: Event) => void
+        /** Emitted when the input is changed by user interaction */
+        change: (arg0: any) => void
+        /** Emitted when input is clicked */
+        click: (arg0: MouseEvent) => void
+        /** Emitted when appended icon is clicked */
+        "click:append": (arg0: Event) => void
+        /** Emitted when appended outer icon is clicked */
+        "click:append-outer": (arg0: Event) => void
+        /** Emitted when clearable icon clicked */
+        "click:clear": (arg0: Event) => void
+        /** Emitted when prepended icon is clicked */
+        "click:prepend": (arg0: Event) => void
+        /** Emitted when prepended inner icon is clicked */
+        "click:prepend-inner": (arg0: Event) => void
+        /** Emitted when component is focused */
+        focus: (arg0: Event) => void
+        /** The updated bound model */
+        input: (arg0: any) => void
+        /** Emitted when **any** key is pressed */
+        keydown: (arg0: KeyboardEvent) => void
+        /** Emitted when click is pressed */
+        mousedown: (arg0: MouseEvent) => void
+        /** Emitted when click is released */
+        mouseup: (arg0: MouseEvent) => void
+        /** The `error.sync` event */
+        "update:error": (arg0: boolean) => void
+        /** Emitted when menu item is selected using keyboard arrows */
+        "update:list-index": (arg0: number) => void
+        /** The `search-input.sync` event */
+        "update:search-input": (arg0: string) => void
       }
     >
 
@@ -620,6 +668,17 @@ declare module "vue" {
           /** The default Vue slot. */
           default: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** The value of currently selected button. If no value is assigned, will be the current index of the button. */
+        change: (arg0: any) => void
+        /** The event used for `input-value.sync`. */
+        "update:input-value": (arg0: string | number) => void
       }
     >
 
@@ -754,9 +813,13 @@ declare module "vue" {
       }
     >
 
-    VBreadcrumbsDivider: DefineComponent<{
-      /** Specify a custom tag used on the root element. */ tag?: string | null
-    }>
+    VBreadcrumbsDivider: DefineComponent<
+      {
+        /** Specify a custom tag used on the root element. */
+        tag?: string | null
+      },
+      {}
+    >
 
     VBtn: DefineComponent<
       {
@@ -866,6 +929,15 @@ declare module "vue" {
           /** Custom loader. */
           loader: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Event that is emitted when the component is clicked */
+        click: (arg0: Event) => void
       }
     >
 
@@ -911,6 +983,15 @@ declare module "vue" {
           /** The default Vue slot. */
           default: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the input is changed by user interaction */
+        change: (arg0: any[] | any) => void
       }
     >
 
@@ -1053,7 +1134,7 @@ declare module "vue" {
                 past: boolean
                 present: boolean
                 future: boolean
-              }
+              },
             ]
             category: string | null
           }) => VNode[]
@@ -1076,7 +1157,7 @@ declare module "vue" {
                 past: boolean
                 present: boolean
                 future: boolean
-              }
+              },
             ]
             date: string
             time: string
@@ -1109,10 +1190,10 @@ declare module "vue" {
             future: boolean
             timeToY: (
               time: string | number | { hour: number; minute: number },
-              clamp: boolean
+              clamp: boolean,
             ) => number | false
             timeDelta: (
-              time: string | number | { hour: number; minute: number }
+              time: string | number | { hour: number; minute: number },
             ) => number | false
             minutesToPixels: (minutes: number) => number
             week: [
@@ -1130,7 +1211,7 @@ declare module "vue" {
                 past: boolean
                 present: boolean
                 future: boolean
-              }
+              },
             ]
           }) => VNode[]
           /** The content that is placed in a `day` view in the top container. The day & time object is passed through this slots scope. */
@@ -1150,10 +1231,10 @@ declare module "vue" {
             future: boolean
             timeToY: (
               time: string | number | { hour: number; minute: number },
-              clamp: boolean
+              clamp: boolean,
             ) => number | false
             timeDelta: (
-              time: string | number | { hour: number; minute: number }
+              time: string | number | { hour: number; minute: number },
             ) => number | false
             minutesToPixels: (minutes: number) => number
             week: [
@@ -1171,7 +1252,7 @@ declare module "vue" {
                 past: boolean
                 present: boolean
                 future: boolean
-              }
+              },
             ]
           }) => VNode[]
           /** The content that is placed in the day of the month space in the `custom-weekly` or `month` view. The day & time object is passed through this slots scope. */
@@ -1283,7 +1364,7 @@ declare module "vue" {
                   past: boolean
                   present: boolean
                   future: boolean
-                }
+                },
               ]
               date: string
               time: string
@@ -1326,10 +1407,10 @@ declare module "vue" {
             future: boolean
             timeToY: (
               time: string | number | { hour: number; minute: number },
-              clamp: boolean
+              clamp: boolean,
             ) => number | false
             timeDelta: (
-              time: string | number | { hour: number; minute: number }
+              time: string | number | { hour: number; minute: number },
             ) => number | false
             minutesToPixels: (minutes: number) => number
             week: [
@@ -1347,139 +1428,3432 @@ declare module "vue" {
                 past: boolean
                 present: boolean
                 future: boolean
-              }
+              },
             ]
           }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** The range of days displayed on the calendar changed. This is triggered on initialization. The event passed is an object with start and end date objects. */
+        change: (arg0: {
+          start: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+          }
+          end: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+          }
+        }) => void
+        /** The click event on the day of the month link. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "click:date": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The click event on a day. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "click:day": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The click event on a day in the `category` view. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "click:day-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The click event on a specific event. The event passed is the day & time object. */
+        "click:event": (arg0: {
+          event: any
+          eventParsed: {
+            input: any
+            start: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            startIdentifier: number
+            startTimestampIdentifier: number
+            end: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            endIdentifier: number
+            endTimestampIdentifier: number
+            allDay: boolean
+            index: number
+            category: string
+          }
+          day: {
+            outside: boolean
+            index: number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+          }
+          outside: boolean
+          start: boolean
+          end: boolean
+          timed: boolean
+          singleline: boolean
+          overlapsNoon: boolean
+          formatTime: (time: VTimestamp, ampm: boolean) => string
+          timeSummary: () => string
+          eventSummary: () => string
+          nativeEvent: MouseEvent | TouchEvent
+        }) => void
+        /** The click event at a specific interval label in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "click:interval": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The click event on the `X more` button on views with too many events in a day. Native mouse event is passed as a second argument. */
+        "click:more": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The click event at a specific time in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "click:time": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The click event at a specific time in the `category` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "click:time-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The right-click event on the day of the month link. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "contextmenu:date": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The right-click event on a day. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "contextmenu:day": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The right-click event on a day in the `category` view. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "contextmenu:day-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The right-click event on an event. The event passed is the day & time object. */
+        "contextmenu:event": (arg0: {
+          event: any
+          eventParsed: {
+            input: any
+            start: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            startIdentifier: number
+            startTimestampIdentifier: number
+            end: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            endIdentifier: number
+            endTimestampIdentifier: number
+            allDay: boolean
+            index: number
+            category: string
+          }
+          day: {
+            outside: boolean
+            index: number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+          }
+          outside: boolean
+          start: boolean
+          end: boolean
+          timed: boolean
+          singleline: boolean
+          overlapsNoon: boolean
+          formatTime: (time: VTimestamp, ampm: boolean) => string
+          timeSummary: () => string
+          eventSummary: () => string
+          nativeEvent: MouseEvent | TouchEvent
+        }) => void
+        /** The right-click event at a specific interval label in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "contextmenu:interval": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The right-click event at a specific time in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "contextmenu:time": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The right-click event at a specific time in the `category` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "contextmenu:time-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** An alias to the `click:date` event used to support v-model. */
+        input: (arg0: {
+          date: string
+          time: string
+          year: number
+          month: number
+          day: number
+          hour: number
+          minute: number
+          weekday: number
+          hasDay: boolean
+          hasTime: boolean
+          past: boolean
+          present: boolean
+          future: boolean
+        }) => void
+        /** The mousedown event on a day. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "mousedown:day": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mousedown event on a day in the `category` view. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "mousedown:day-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mousedown event on an event. The event passed is the day & time object. */
+        "mousedown:event": (arg0: {
+          event: any
+          eventParsed: {
+            input: any
+            start: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            startIdentifier: number
+            startTimestampIdentifier: number
+            end: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            endIdentifier: number
+            endTimestampIdentifier: number
+            allDay: boolean
+            index: number
+            category: string
+          }
+          day: {
+            outside: boolean
+            index: number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+          }
+          outside: boolean
+          start: boolean
+          end: boolean
+          timed: boolean
+          singleline: boolean
+          overlapsNoon: boolean
+          formatTime: (time: VTimestamp, ampm: boolean) => string
+          timeSummary: () => string
+          eventSummary: () => string
+          nativeEvent: MouseEvent | TouchEvent
+        }) => void
+        /** The mousedown event at a specific interval label in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "mousedown:interval": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mousedown event at a specific time in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "mousedown:time": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mousedown event at a specific time in the `category` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "mousedown:time-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mouseenter event on a day. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "mouseenter:day": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mouseenter event on a day in the `category` view. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "mouseenter:day-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mouseenter event on an event. The event passed is the day & time object. */
+        "mouseenter:event": (arg0: {
+          event: any
+          eventParsed: {
+            input: any
+            start: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            startIdentifier: number
+            startTimestampIdentifier: number
+            end: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            endIdentifier: number
+            endTimestampIdentifier: number
+            allDay: boolean
+            index: number
+            category: string
+          }
+          day: {
+            outside: boolean
+            index: number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+          }
+          outside: boolean
+          start: boolean
+          end: boolean
+          timed: boolean
+          singleline: boolean
+          overlapsNoon: boolean
+          formatTime: (time: VTimestamp, ampm: boolean) => string
+          timeSummary: () => string
+          eventSummary: () => string
+          nativeEvent: MouseEvent | TouchEvent
+        }) => void
+        /** The mouseenter event at a specific interval label in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "mouseenter:interval": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mouseenter event at a specific time in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "mouseenter:time": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mouseenter event at a specific time in the `category` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "mouseenter:time-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mouseleave event on a day. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "mouseleave:day": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mouseleave event on a day in the `category` view. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "mouseleave:day-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mouseleave event on an event. The event passed is the day & time object. */
+        "mouseleave:event": (arg0: {
+          event: any
+          eventParsed: {
+            input: any
+            start: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            startIdentifier: number
+            startTimestampIdentifier: number
+            end: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            endIdentifier: number
+            endTimestampIdentifier: number
+            allDay: boolean
+            index: number
+            category: string
+          }
+          day: {
+            outside: boolean
+            index: number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+          }
+          outside: boolean
+          start: boolean
+          end: boolean
+          timed: boolean
+          singleline: boolean
+          overlapsNoon: boolean
+          formatTime: (time: VTimestamp, ampm: boolean) => string
+          timeSummary: () => string
+          eventSummary: () => string
+          nativeEvent: MouseEvent | TouchEvent
+        }) => void
+        /** The mouseleave event at a specific interval label in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "mouseleave:interval": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mouseleave event at a specific time in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "mouseleave:time": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mouseleave event at a specific time in the `category` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "mouseleave:time-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mousemove event on a day. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "mousemove:day": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mousemove event on a day in the `category` view. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "mousemove:day-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mousemove event on an event. The event passed is the day & time object. */
+        "mousemove:event": (arg0: {
+          event: any
+          eventParsed: {
+            input: any
+            start: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            startIdentifier: number
+            startTimestampIdentifier: number
+            end: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            endIdentifier: number
+            endTimestampIdentifier: number
+            allDay: boolean
+            index: number
+            category: string
+          }
+          day: {
+            outside: boolean
+            index: number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+          }
+          outside: boolean
+          start: boolean
+          end: boolean
+          timed: boolean
+          singleline: boolean
+          overlapsNoon: boolean
+          formatTime: (time: VTimestamp, ampm: boolean) => string
+          timeSummary: () => string
+          eventSummary: () => string
+          nativeEvent: MouseEvent | TouchEvent
+        }) => void
+        /** The mousemove event at a specific interval label in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "mousemove:interval": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mousemove event at a specific time in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "mousemove:time": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mousemove event at a specific time in the `category` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "mousemove:time-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mouseup event on a day. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "mouseup:day": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mouseup event on a day in the `category` view. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "mouseup:day-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mouseup event on an event. The event passed is the day & time object. */
+        "mouseup:event": (arg0: {
+          event: any
+          eventParsed: {
+            input: any
+            start: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            startIdentifier: number
+            startTimestampIdentifier: number
+            end: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            endIdentifier: number
+            endTimestampIdentifier: number
+            allDay: boolean
+            index: number
+            category: string
+          }
+          day: {
+            outside: boolean
+            index: number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+          }
+          outside: boolean
+          start: boolean
+          end: boolean
+          timed: boolean
+          singleline: boolean
+          overlapsNoon: boolean
+          formatTime: (time: VTimestamp, ampm: boolean) => string
+          timeSummary: () => string
+          eventSummary: () => string
+          nativeEvent: MouseEvent | TouchEvent
+        }) => void
+        /** The mouseup event at a specific interval label in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "mouseup:interval": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mouseup event at a specific time in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "mouseup:time": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** The mouseup event at a specific time in the `category` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "mouseup:time-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: MouseEvent,
+        ) => void
+        /** One of the functions `next`, `prev`, and `move` was called. The event passed is the day object calculated for the movement. */
+        moved: (arg0: {
+          date: string
+          time: string
+          year: number
+          month: number
+          day: number
+          hour: number
+          minute: number
+          weekday: number
+          hasDay: boolean
+          hasTime: boolean
+          past: boolean
+          present: boolean
+          future: boolean
+        }) => void
+        /** The touchend event on a day. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "touchend:day": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: TouchEvent,
+        ) => void
+        /** The touchend event on a day in the `category` view. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "touchend:day-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: TouchEvent,
+        ) => void
+        /** The touchend event on am view. The event passed is the day & time object. */
+        "touchend:event": (arg0: {
+          event: any
+          eventParsed: {
+            input: any
+            start: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            startIdentifier: number
+            startTimestampIdentifier: number
+            end: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            endIdentifier: number
+            endTimestampIdentifier: number
+            allDay: boolean
+            index: number
+            category: string
+          }
+          day: {
+            outside: boolean
+            index: number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+          }
+          outside: boolean
+          start: boolean
+          end: boolean
+          timed: boolean
+          singleline: boolean
+          overlapsNoon: boolean
+          formatTime: (time: VTimestamp, ampm: boolean) => string
+          timeSummary: () => string
+          eventSummary: () => string
+          nativeEvent: MouseEvent | TouchEvent
+        }) => void
+        /** The touchend event at a specific interval label in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "touchend:interval": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: TouchEvent,
+        ) => void
+        /** The touchend event at a specific time in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "touchend:time": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: TouchEvent,
+        ) => void
+        /** The touchend event at a specific time in the `category` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "touchend:time-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: TouchEvent,
+        ) => void
+        /** The touchmove event on a day. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "touchmove:day": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: TouchEvent,
+        ) => void
+        /** The touchmove event on a day in the `category` view. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "touchmove:day-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: TouchEvent,
+        ) => void
+        /** The touchmove event on an `event` view. The event passed is the day & time object. */
+        "touchmove:event": (arg0: {
+          event: any
+          eventParsed: {
+            input: any
+            start: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            startIdentifier: number
+            startTimestampIdentifier: number
+            end: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            endIdentifier: number
+            endTimestampIdentifier: number
+            allDay: boolean
+            index: number
+            category: string
+          }
+          day: {
+            outside: boolean
+            index: number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+          }
+          outside: boolean
+          start: boolean
+          end: boolean
+          timed: boolean
+          singleline: boolean
+          overlapsNoon: boolean
+          formatTime: (time: VTimestamp, ampm: boolean) => string
+          timeSummary: () => string
+          eventSummary: () => string
+          nativeEvent: MouseEvent | TouchEvent
+        }) => void
+        /** The touchmove event at a specific interval label in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "touchmove:interval": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: TouchEvent,
+        ) => void
+        /** The touchmove event at a specific time in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "touchmove:time": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: TouchEvent,
+        ) => void
+        /** The touchmove event at a specific time in the `category` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "touchmove:time-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: TouchEvent,
+        ) => void
+        /** The touchstart event on a day. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "touchstart:day": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: TouchEvent,
+        ) => void
+        /** The touchstart event on a day in the `category` view. The event passed is the day object. Native mouse event is passed as a second argument. */
+        "touchstart:day-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: TouchEvent,
+        ) => void
+        /** The touchstart event on an event` view. The event passed is the day & time object. */
+        "touchstart:event": (arg0: {
+          event: any
+          eventParsed: {
+            input: any
+            start: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            startIdentifier: number
+            startTimestampIdentifier: number
+            end: {
+              date: string
+              time: string
+              year: number
+              month: number
+              day: number
+              hour: number
+              minute: number
+              weekday: number
+              hasDay: boolean
+              hasTime: boolean
+              past: boolean
+              present: boolean
+              future: boolean
+            }
+            endIdentifier: number
+            endTimestampIdentifier: number
+            allDay: boolean
+            index: number
+            category: string
+          }
+          day: {
+            outside: boolean
+            index: number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+          }
+          outside: boolean
+          start: boolean
+          end: boolean
+          timed: boolean
+          singleline: boolean
+          overlapsNoon: boolean
+          formatTime: (time: VTimestamp, ampm: boolean) => string
+          timeSummary: () => string
+          eventSummary: () => string
+          nativeEvent: MouseEvent | TouchEvent
+        }) => void
+        /** The touchstart event at a specific interval label in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "touchstart:interval": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: TouchEvent,
+        ) => void
+        /** The touchstart event at a specific time in the `day` view. The event passed is the day & time object. Native mouse event is passed as a second argument. */
+        "touchstart:time": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: TouchEvent,
+        ) => void
+        /** The touchstart event at a specific time in the `category` view. The event passed is the day & time object Native mouse event is passed as a second argument.. */
+        "touchstart:time-category": (
+          arg0: {
+            date: string
+            time: string
+            year: number
+            month: number
+            day: number
+            hour: number
+            minute: number
+            weekday: number
+            hasDay: boolean
+            hasTime: boolean
+            past: boolean
+            present: boolean
+            future: boolean
+            timeToY: (
+              time: string | number | { hour: number; minute: number },
+              clamp: boolean,
+            ) => number | false
+            timeDelta: (
+              time: string | number | { hour: number; minute: number },
+            ) => number | false
+            minutesToPixels: (minutes: number) => number
+            week: [
+              {
+                date: string
+                time: string
+                year: number
+                month: number
+                day: number
+                hour: number
+                minute: number
+                weekday: number
+                hasDay: boolean
+                hasTime: boolean
+                past: boolean
+                present: boolean
+                future: boolean
+              },
+            ]
+          },
+          arg1: TouchEvent,
+        ) => void
       }
     >
 
-    VCalendarDaily: DefineComponent<{
-      /** Applies specified color to the control - it can be the name of material color (for example `success` or `purple`) or css color (`#033` or `rgba(255, 0, 0, 0.5)`). You can find a list of built-in classes on the [colors page](/styles/colors#material-colors). */
-      color?: string | null
-      /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
-      dark?: boolean | null
-      /** Formats day of the month string that appears in a day to a specified locale */
-      dayFormat?: Function | null
-      /** The ending date on the calendar (inclusive) in the format of `YYYY-MM-DD`. This may be ignored depending on the `type` of the calendar. */
-      end?: string | number | Date | null
-      /** The first interval to display in the `day` view. If `intervalMinutes` is set to 60 and this is set to 9 the first time in the view is 9am. */
-      firstInterval?: number | string | null
-      /** The first time to display in the `day` view. If specified, this overwrites any `firstInterval` value specified. This can be the number of minutes since midnight, a string in the format of `HH:mm`, or an object with number properties hour and minute. */
-      firstTime?: number | string | object | null
-      /** If the header at the top of the `day` view should be visible. */
-      hideHeader?: boolean | null
-      /** The number of intervals to display in the `day` view. */
-      intervalCount?: number | string | null
-      /** Formats time of day string that appears in the interval gutter of the `day` and `week` view to specified locale */
-      intervalFormat?: Function | null
-      /** The height of an interval in pixels in the `day` view. */
-      intervalHeight?: number | string | null
-      /** The number of minutes the intervals are in the `day` view. A common interval is 60 minutes so the intervals are an hour. */
-      intervalMinutes?: number | string | null
-      /** Returns CSS styling to apply to the interval. */
-      intervalStyle?: Function | null
-      /** The width of the interval gutter on the left side in the `day` view. */
-      intervalWidth?: number | string | null
-      /** Applies the light theme variant to the component. */
-      light?: boolean | null
-      /** The locale of the calendar. */
-      locale?: string | null
-      /** The maximum number of days to display in the custom calendar if an `end` day is not set. */
-      maxDays?: number | null
-      /** Override the day & time which is considered now. This is in the format of `YYYY-MM-DD hh:mm:ss`. The calendar is styled according to now. */
-      now?: string | null
-      /** If true, the intervals in the `day` view will be 9 AM as opposed to 09:00 AM */
-      shortIntervals?: boolean | null
-      /** Whether the short versions of a weekday should be used (Mon vs Monday). */
-      shortWeekdays?: boolean | null
-      /** Checks if a given day and time should be displayed in the interval gutter of the `day` view. */
-      showIntervalLabel?: Function | null
-      /** The starting date on the calendar (inclusive) in the format of `YYYY-MM-DD`. This may be ignored depending on the `type` of the calendar. */
-      start?: string | number | Date | null
-      /** Formats day of the week string that appears in the header to specified locale */
-      weekdayFormat?: Function | null
-      /** Specifies which days of the week to display. To display Monday through Friday only, a value of `[1, 2, 3, 4, 5]` can be used. To display a week starting on Monday a value of `[1, 2, 3, 4, 5, 6, 0]` can be used. */
-      weekdays?: any[] | string | null
-    }>
+    VCalendarDaily: DefineComponent<
+      {
+        /** Applies specified color to the control - it can be the name of material color (for example `success` or `purple`) or css color (`#033` or `rgba(255, 0, 0, 0.5)`). You can find a list of built-in classes on the [colors page](/styles/colors#material-colors). */
+        color?: string | null
+        /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
+        dark?: boolean | null
+        /** Formats day of the month string that appears in a day to a specified locale */
+        dayFormat?: Function | null
+        /** The ending date on the calendar (inclusive) in the format of `YYYY-MM-DD`. This may be ignored depending on the `type` of the calendar. */
+        end?: string | number | Date | null
+        /** The first interval to display in the `day` view. If `intervalMinutes` is set to 60 and this is set to 9 the first time in the view is 9am. */
+        firstInterval?: number | string | null
+        /** The first time to display in the `day` view. If specified, this overwrites any `firstInterval` value specified. This can be the number of minutes since midnight, a string in the format of `HH:mm`, or an object with number properties hour and minute. */
+        firstTime?: number | string | object | null
+        /** If the header at the top of the `day` view should be visible. */
+        hideHeader?: boolean | null
+        /** The number of intervals to display in the `day` view. */
+        intervalCount?: number | string | null
+        /** Formats time of day string that appears in the interval gutter of the `day` and `week` view to specified locale */
+        intervalFormat?: Function | null
+        /** The height of an interval in pixels in the `day` view. */
+        intervalHeight?: number | string | null
+        /** The number of minutes the intervals are in the `day` view. A common interval is 60 minutes so the intervals are an hour. */
+        intervalMinutes?: number | string | null
+        /** Returns CSS styling to apply to the interval. */
+        intervalStyle?: Function | null
+        /** The width of the interval gutter on the left side in the `day` view. */
+        intervalWidth?: number | string | null
+        /** Applies the light theme variant to the component. */
+        light?: boolean | null
+        /** The locale of the calendar. */
+        locale?: string | null
+        /** The maximum number of days to display in the custom calendar if an `end` day is not set. */
+        maxDays?: number | null
+        /** Override the day & time which is considered now. This is in the format of `YYYY-MM-DD hh:mm:ss`. The calendar is styled according to now. */
+        now?: string | null
+        /** If true, the intervals in the `day` view will be 9 AM as opposed to 09:00 AM */
+        shortIntervals?: boolean | null
+        /** Whether the short versions of a weekday should be used (Mon vs Monday). */
+        shortWeekdays?: boolean | null
+        /** Checks if a given day and time should be displayed in the interval gutter of the `day` view. */
+        showIntervalLabel?: Function | null
+        /** The starting date on the calendar (inclusive) in the format of `YYYY-MM-DD`. This may be ignored depending on the `type` of the calendar. */
+        start?: string | number | Date | null
+        /** Formats day of the week string that appears in the header to specified locale */
+        weekdayFormat?: Function | null
+        /** Specifies which days of the week to display. To display Monday through Friday only, a value of `[1, 2, 3, 4, 5]` can be used. To display a week starting on Monday a value of `[1, 2, 3, 4, 5, 6, 0]` can be used. */
+        weekdays?: any[] | string | null
+      },
+      {}
+    >
 
-    VCalendarWeekly: DefineComponent<{
-      /** Applies specified color to the control - it can be the name of material color (for example `success` or `purple`) or css color (`#033` or `rgba(255, 0, 0, 0.5)`). You can find a list of built-in classes on the [colors page](/styles/colors#material-colors). */
-      color?: string | null
-      /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
-      dark?: boolean | null
-      /** Formats day of the month string that appears in a day to a specified locale */
-      dayFormat?: Function | null
-      /** The ending date on the calendar (inclusive) in the format of `YYYY-MM-DD`. This may be ignored depending on the `type` of the calendar. */
-      end?: string | number | Date | null
-      /** If the header at the top of the `day` view should be visible. */
-      hideHeader?: boolean | null
-      /** Applies the light theme variant to the component. */
-      light?: boolean | null
-      /** The locale of the calendar. */
-      locale?: string | null
-      /** Sets the day that determines the first week of the year, starting with 0 for **Sunday**. For ISO 8601 this should be 4. */
-      localeFirstDayOfYear?: string | number | null
-      /** The minimum number of weeks to display in the `month` or `week` view. */
-      minWeeks?: any | null
-      /** Formats month string that appears in a day to specified locale */
-      monthFormat?: Function | null
-      /** Override the day & time which is considered now. This is in the format of `YYYY-MM-DD hh:mm:ss`. The calendar is styled according to now. */
-      now?: string | null
-      /** Whether the short versions of a month should be used (Jan vs January). */
-      shortMonths?: boolean | null
-      /** Whether the short versions of a weekday should be used (Mon vs Monday). */
-      shortWeekdays?: boolean | null
-      /** Whether the name of the month should be displayed on the first day of the month. */
-      showMonthOnFirst?: boolean | null
-      /** Whether week numbers should be displayed when using the `month` view. */
-      showWeek?: boolean | null
-      /** The starting date on the calendar (inclusive) in the format of `YYYY-MM-DD`. This may be ignored depending on the `type` of the calendar. */
-      start?: string | number | Date | null
-      /** Formats day of the week string that appears in the header to specified locale */
-      weekdayFormat?: Function | null
-      /** Specifies which days of the week to display. To display Monday through Friday only, a value of `[1, 2, 3, 4, 5]` can be used. To display a week starting on Monday a value of `[1, 2, 3, 4, 5, 6, 0]` can be used. */
-      weekdays?: any[] | string | null
-    }>
+    VCalendarWeekly: DefineComponent<
+      {
+        /** Applies specified color to the control - it can be the name of material color (for example `success` or `purple`) or css color (`#033` or `rgba(255, 0, 0, 0.5)`). You can find a list of built-in classes on the [colors page](/styles/colors#material-colors). */
+        color?: string | null
+        /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
+        dark?: boolean | null
+        /** Formats day of the month string that appears in a day to a specified locale */
+        dayFormat?: Function | null
+        /** The ending date on the calendar (inclusive) in the format of `YYYY-MM-DD`. This may be ignored depending on the `type` of the calendar. */
+        end?: string | number | Date | null
+        /** If the header at the top of the `day` view should be visible. */
+        hideHeader?: boolean | null
+        /** Applies the light theme variant to the component. */
+        light?: boolean | null
+        /** The locale of the calendar. */
+        locale?: string | null
+        /** Sets the day that determines the first week of the year, starting with 0 for **Sunday**. For ISO 8601 this should be 4. */
+        localeFirstDayOfYear?: string | number | null
+        /** The minimum number of weeks to display in the `month` or `week` view. */
+        minWeeks?: any | null
+        /** Formats month string that appears in a day to specified locale */
+        monthFormat?: Function | null
+        /** Override the day & time which is considered now. This is in the format of `YYYY-MM-DD hh:mm:ss`. The calendar is styled according to now. */
+        now?: string | null
+        /** Whether the short versions of a month should be used (Jan vs January). */
+        shortMonths?: boolean | null
+        /** Whether the short versions of a weekday should be used (Mon vs Monday). */
+        shortWeekdays?: boolean | null
+        /** Whether the name of the month should be displayed on the first day of the month. */
+        showMonthOnFirst?: boolean | null
+        /** Whether week numbers should be displayed when using the `month` view. */
+        showWeek?: boolean | null
+        /** The starting date on the calendar (inclusive) in the format of `YYYY-MM-DD`. This may be ignored depending on the `type` of the calendar. */
+        start?: string | number | Date | null
+        /** Formats day of the week string that appears in the header to specified locale */
+        weekdayFormat?: Function | null
+        /** Specifies which days of the week to display. To display Monday through Friday only, a value of `[1, 2, 3, 4, 5]` can be used. To display a week starting on Monday a value of `[1, 2, 3, 4, 5, 6, 0]` can be used. */
+        weekdays?: any[] | string | null
+      },
+      {}
+    >
 
-    VCalendarMonthly: DefineComponent<{
-      /** Applies specified color to the control - it can be the name of material color (for example `success` or `purple`) or css color (`#033` or `rgba(255, 0, 0, 0.5)`). You can find a list of built-in classes on the [colors page](/styles/colors#material-colors). */
-      color?: string | null
-      /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
-      dark?: boolean | null
-      /** Formats day of the month string that appears in a day to a specified locale */
-      dayFormat?: Function | null
-      /** The ending date on the calendar (inclusive) in the format of `YYYY-MM-DD`. This may be ignored depending on the `type` of the calendar. */
-      end?: string | number | Date | null
-      /** If the header at the top of the `day` view should be visible. */
-      hideHeader?: boolean | null
-      /** Applies the light theme variant to the component. */
-      light?: boolean | null
-      /** The locale of the calendar. */
-      locale?: string | null
-      /** Sets the day that determines the first week of the year, starting with 0 for **Sunday**. For ISO 8601 this should be 4. */
-      localeFirstDayOfYear?: string | number | null
-      /** The minimum number of weeks to display in the `month` or `week` view. */
-      minWeeks?: any | null
-      /** Formats month string that appears in a day to specified locale */
-      monthFormat?: Function | null
-      /** Override the day & time which is considered now. This is in the format of `YYYY-MM-DD hh:mm:ss`. The calendar is styled according to now. */
-      now?: string | null
-      /** Whether the short versions of a month should be used (Jan vs January). */
-      shortMonths?: boolean | null
-      /** Whether the short versions of a weekday should be used (Mon vs Monday). */
-      shortWeekdays?: boolean | null
-      /** Whether the name of the month should be displayed on the first day of the month. */
-      showMonthOnFirst?: boolean | null
-      /** Whether week numbers should be displayed when using the `month` view. */
-      showWeek?: boolean | null
-      /** The starting date on the calendar (inclusive) in the format of `YYYY-MM-DD`. This may be ignored depending on the `type` of the calendar. */
-      start?: string | number | Date | null
-      /** Formats day of the week string that appears in the header to specified locale */
-      weekdayFormat?: Function | null
-      /** Specifies which days of the week to display. To display Monday through Friday only, a value of `[1, 2, 3, 4, 5]` can be used. To display a week starting on Monday a value of `[1, 2, 3, 4, 5, 6, 0]` can be used. */
-      weekdays?: any[] | string | null
-    }>
+    VCalendarMonthly: DefineComponent<
+      {
+        /** Applies specified color to the control - it can be the name of material color (for example `success` or `purple`) or css color (`#033` or `rgba(255, 0, 0, 0.5)`). You can find a list of built-in classes on the [colors page](/styles/colors#material-colors). */
+        color?: string | null
+        /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
+        dark?: boolean | null
+        /** Formats day of the month string that appears in a day to a specified locale */
+        dayFormat?: Function | null
+        /** The ending date on the calendar (inclusive) in the format of `YYYY-MM-DD`. This may be ignored depending on the `type` of the calendar. */
+        end?: string | number | Date | null
+        /** If the header at the top of the `day` view should be visible. */
+        hideHeader?: boolean | null
+        /** Applies the light theme variant to the component. */
+        light?: boolean | null
+        /** The locale of the calendar. */
+        locale?: string | null
+        /** Sets the day that determines the first week of the year, starting with 0 for **Sunday**. For ISO 8601 this should be 4. */
+        localeFirstDayOfYear?: string | number | null
+        /** The minimum number of weeks to display in the `month` or `week` view. */
+        minWeeks?: any | null
+        /** Formats month string that appears in a day to specified locale */
+        monthFormat?: Function | null
+        /** Override the day & time which is considered now. This is in the format of `YYYY-MM-DD hh:mm:ss`. The calendar is styled according to now. */
+        now?: string | null
+        /** Whether the short versions of a month should be used (Jan vs January). */
+        shortMonths?: boolean | null
+        /** Whether the short versions of a weekday should be used (Mon vs Monday). */
+        shortWeekdays?: boolean | null
+        /** Whether the name of the month should be displayed on the first day of the month. */
+        showMonthOnFirst?: boolean | null
+        /** Whether week numbers should be displayed when using the `month` view. */
+        showWeek?: boolean | null
+        /** The starting date on the calendar (inclusive) in the format of `YYYY-MM-DD`. This may be ignored depending on the `type` of the calendar. */
+        start?: string | number | Date | null
+        /** Formats day of the week string that appears in the header to specified locale */
+        weekdayFormat?: Function | null
+        /** Specifies which days of the week to display. To display Monday through Friday only, a value of `[1, 2, 3, 4, 5]` can be used. To display a week starting on Monday a value of `[1, 2, 3, 4, 5, 6, 0]` can be used. */
+        weekdays?: any[] | string | null
+      },
+      {}
+    >
 
     VCard: DefineComponent<
       {
@@ -1559,6 +4933,15 @@ declare module "vue" {
           /** Slot for custom progress linear (displayed when **loading** prop is not equal to Boolean False) */
           progress: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when component is clicked - Will trigger component to ripple when clicked unless the `.native` modifier is used */
+        click: (arg0: void) => void
       }
     >
 
@@ -1686,6 +5069,15 @@ declare module "vue" {
             on: { click: eventHandler }
           }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the component value is changed by user interaction */
+        change: (arg0: number) => void
       }
     >
 
@@ -1817,31 +5209,66 @@ declare module "vue" {
           /** Adds an item outside the input and before input content */
           prepend: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the input is changed by user interaction */
+        change: (arg0: any) => void
+        /** Emitted when input is clicked */
+        click: (arg0: MouseEvent) => void
+        /** Emitted when appended icon is clicked */
+        "click:append": (arg0: Event) => void
+        /** Emitted when prepended icon is clicked */
+        "click:prepend": (arg0: Event) => void
+        /** Emitted when click is pressed */
+        mousedown: (arg0: MouseEvent) => void
+        /** Emitted when click is released */
+        mouseup: (arg0: MouseEvent) => void
+        /** The `error.sync` event */
+        "update:error": (arg0: boolean) => void
+        /** The **indeterminate.sync** event. */
+        "update:indeterminate": (arg0: boolean) => void
       }
     >
 
-    VSimpleCheckbox: DefineComponent<{
-      /** Applies specified color to the control - it can be the name of material color (for example `success` or `purple`) or css color (`#033` or `rgba(255, 0, 0, 0.5)`). You can find a list of built-in classes on the [colors page](/styles/colors#material-colors). */
-      color?: string | null
-      /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
-      dark?: boolean | null
-      /** Disables simple checkbox. */
-      disabled?: boolean | null
-      /** Sets an indeterminate state for the simple checkbox. */
-      indeterminate?: boolean | null
-      /** The icon used when in an indeterminate state. */
-      indeterminateIcon?: string | null
-      /** Applies the light theme variant to the component. */
-      light?: boolean | null
-      /** The icon used when inactive. */
-      offIcon?: string | null
-      /** The icon used when active. */
-      onIcon?: string | null
-      /** Applies the [v-ripple](/directives/ripple) directive. */
-      ripple?: boolean | null
-      /** A boolean value that represents whether the simple checkbox is checked. */
-      value?: boolean | null
-    }>
+    VSimpleCheckbox: DefineComponent<
+      {
+        /** Applies specified color to the control - it can be the name of material color (for example `success` or `purple`) or css color (`#033` or `rgba(255, 0, 0, 0.5)`). You can find a list of built-in classes on the [colors page](/styles/colors#material-colors). */
+        color?: string | null
+        /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
+        dark?: boolean | null
+        /** Disables simple checkbox. */
+        disabled?: boolean | null
+        /** Sets an indeterminate state for the simple checkbox. */
+        indeterminate?: boolean | null
+        /** The icon used when in an indeterminate state. */
+        indeterminateIcon?: string | null
+        /** Applies the light theme variant to the component. */
+        light?: boolean | null
+        /** The icon used when inactive. */
+        offIcon?: string | null
+        /** The icon used when active. */
+        onIcon?: string | null
+        /** Applies the [v-ripple](/directives/ripple) directive. */
+        ripple?: boolean | null
+        /** A boolean value that represents whether the simple checkbox is checked. */
+        value?: boolean | null
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** The updated bound model */
+        input: (arg0: Event) => void
+      }
+    >
 
     VChip: DefineComponent<
       {
@@ -1919,6 +5346,21 @@ declare module "vue" {
           /** The default Vue slot. */
           default: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when component is clicked, toggles chip if contained in a chip group - Will trigger component to ripple when clicked unless the `.native` modifier is used */
+        click: (arg0: MouseEvent) => void
+        /** Emitted when close icon is clicked */
+        "click:close": (arg0: void) => void
+        /** The updated bound model */
+        input: (arg0: boolean) => void
+        /** Emitted when close icon is clicked, sets active to `false` */
+        "update:active": (arg0: boolean) => void
       }
     >
 
@@ -1962,48 +5404,85 @@ declare module "vue" {
           /** The default Vue slot. */
           default: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the component value is changed by user interaction */
+        change: (arg0: any[] | any) => void
       }
     >
 
-    VColorPicker: DefineComponent<{
-      /** Height of canvas */ canvasHeight?: string | number | null
-      /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
-      dark?: boolean | null
-      /** Disables picker */
-      disabled?: boolean | null
-      /** Changes the size of the selection dot on the canvas */
-      dotSize?: number | string | null
-      /** Designates an elevation applied to the component between 0 and 24. You can find more information on the [elevation page](/styles/elevation). */
-      elevation?: number | string | null
-      /** Removes elevation */
-      flat?: boolean | null
-      /** Hides canvas */
-      hideCanvas?: boolean | null
-      /** Hides inputs */
-      hideInputs?: boolean | null
-      /** Hides mode switch */
-      hideModeSwitch?: boolean | null
-      /** Hides sliders */
-      hideSliders?: boolean | null
-      /** Applies the light theme variant to the component. */
-      light?: boolean | null
-      /** Sets mode of inputs. Available modes are 'rgba', 'hsla', and 'hexa'. Can be synced with the `.sync` modifier. */
-      mode?: string | null
-      /** Displays color swatches */
-      showSwatches?: boolean | null
-      /** Sets the available color swatches to select from - This prop only accepts rgba hex strings */
-      swatches?: any[] | null
-      /** Sets the maximum height of the swatches section */
-      swatchesMaxHeight?: number | string | null
-      /** Current color. This can be either a string representing a hex color, or an object representing a RGBA, HSLA, or HSVA value */
-      value?: object | string | null
-      /** Sets the width of the color picker */
-      width?: number | string | null
-    }>
+    VColorPicker: DefineComponent<
+      {
+        /** Height of canvas */ canvasHeight?: string | number | null
+        /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
+        dark?: boolean | null
+        /** Disables picker */
+        disabled?: boolean | null
+        /** Changes the size of the selection dot on the canvas */
+        dotSize?: number | string | null
+        /** Designates an elevation applied to the component between 0 and 24. You can find more information on the [elevation page](/styles/elevation). */
+        elevation?: number | string | null
+        /** Removes elevation */
+        flat?: boolean | null
+        /** Hides canvas */
+        hideCanvas?: boolean | null
+        /** Hides inputs */
+        hideInputs?: boolean | null
+        /** Hides mode switch */
+        hideModeSwitch?: boolean | null
+        /** Hides sliders */
+        hideSliders?: boolean | null
+        /** Applies the light theme variant to the component. */
+        light?: boolean | null
+        /** Sets mode of inputs. Available modes are 'rgba', 'hsla', and 'hexa'. Can be synced with the `.sync` modifier. */
+        mode?: string | null
+        /** Displays color swatches */
+        showSwatches?: boolean | null
+        /** Sets the available color swatches to select from - This prop only accepts rgba hex strings */
+        swatches?: any[] | null
+        /** Sets the maximum height of the swatches section */
+        swatchesMaxHeight?: number | string | null
+        /** Current color. This can be either a string representing a hex color, or an object representing a RGBA, HSLA, or HSVA value */
+        value?: object | string | null
+        /** Sets the width of the color picker */
+        width?: number | string | null
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Selected color. Depending on what you passed to the `value` prop this is either a string or an object */
+        input: (arg0: string | object) => void
+        /** Selected color. This is the internal representation of the color, containing all values. */
+        "update:color": (arg0: {
+          alpha: number
+          hex: string
+          hexa: string
+          hsla: { h: number; s: number; l: number; a: number }
+          hsva: { h: number; s: number; v: number; a: number }
+          hue: number
+          rgba: { r: number; g: number; b: number; a: number }
+        }) => void
+        /** Selected mode */
+        "update:mode": (arg0: string) => void
+      }
+    >
 
-    VContent: DefineComponent<{
-      /** Specify a custom tag used on the root element. */ tag?: string | null
-    }>
+    VContent: DefineComponent<
+      {
+        /** Specify a custom tag used on the root element. */
+        tag?: string | null
+      },
+      {}
+    >
 
     VCombobox: DefineComponent<
       {
@@ -2066,7 +5545,7 @@ declare module "vue" {
         hideDetails?: boolean | string | null
         /** Hides the menu when there are no options to show.  Useful for preventing the menu from opening before results are fetched asynchronously.  Also has the effect of opening the menu when the `items` array changes if not already open. */
         hideNoData?: boolean | null
-        /** Do not display in the select menu items that are already selected */
+        /** Do not display in the select menu items that are already selected. Also removes checkboxes from the list when multiple */
         hideSelected?: boolean | null
         /** Hint text */
         hint?: string | null
@@ -2148,7 +5627,7 @@ declare module "vue" {
         validateOnBlur?: boolean | null
         /** The input's value */
         value?: any | null
-        /** The comparison algorithm used for values. [More info](https://github.com/vuetifyjs/vuetify/blob/master/packages/vuetify/src/util/helpers.ts) */
+        /** The comparison algorithm used for values. [More info](https://github.com/vuetifyjs/vuetify/blob/v2-stable/packages/vuetify/src/util/helpers.ts) */
         valueComparator?: Function | null
       },
       {
@@ -2196,6 +5675,45 @@ declare module "vue" {
             disabled: boolean
           }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the input is blurred */
+        blur: (arg0: Event) => void
+        /** Emitted when the input is changed by user interaction */
+        change: (arg0: any) => void
+        /** Emitted when input is clicked */
+        click: (arg0: MouseEvent) => void
+        /** Emitted when appended icon is clicked */
+        "click:append": (arg0: Event) => void
+        /** Emitted when appended outer icon is clicked */
+        "click:append-outer": (arg0: Event) => void
+        /** Emitted when clearable icon clicked */
+        "click:clear": (arg0: Event) => void
+        /** Emitted when prepended icon is clicked */
+        "click:prepend": (arg0: Event) => void
+        /** Emitted when prepended inner icon is clicked */
+        "click:prepend-inner": (arg0: Event) => void
+        /** Emitted when component is focused */
+        focus: (arg0: Event) => void
+        /** The updated bound model */
+        input: (arg0: any) => void
+        /** Emitted when **any** key is pressed */
+        keydown: (arg0: KeyboardEvent) => void
+        /** Emitted when click is pressed */
+        mousedown: (arg0: MouseEvent) => void
+        /** Emitted when click is released */
+        mouseup: (arg0: MouseEvent) => void
+        /** The `error.sync` event */
+        "update:error": (arg0: boolean) => void
+        /** Emitted when menu item is selected using keyboard arrows */
+        "update:list-index": (arg0: number) => void
+        /** The `search-input.sync` event */
+        "update:search-input": (arg0: string) => void
       }
     >
 
@@ -2381,6 +5899,63 @@ declare module "vue" {
           /** Defines content for when `search` is provided but no results are found */
           "no-results": undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emits the items provided via the **items** prop, every time the internal **computedItems** is changed. */
+        "current-items": (arg0: any[]) => void
+        /** Array of selected items */
+        input: (arg0: any[]) => void
+        /** Event emitted when an item is expanded or closed */
+        "item-expanded": (arg0: { item: any; value: boolean }) => void
+        /** Event emitted when an item is selected or deselected */
+        "item-selected": (arg0: { item: any; value: boolean }) => void
+        /** Emits when the **pageCount** property of the **pagination** prop is updated */
+        "page-count": (arg0: number) => void
+        /** Emits when something changed to the `pagination` which can be provided via the `pagination` prop */
+        pagination: (arg0: {
+          page: number
+          itemsPerPage: number
+          pageStart: number
+          pageStop: number
+          pageCount: number
+          itemsLength: number
+        }) => void
+        /** Emits when the `select-all` checkbox in table header is clicked. This checkbox is enabled by the **show-select** prop */
+        "toggle-select-all": (arg0: { items: any[]; value: boolean }) => void
+        /** The `.sync` event for `expanded` prop */
+        "update:expanded": (arg0: any[]) => void
+        /** Emits when the **group-by** property of the **options** property is updated */
+        "update:group-by": (arg0: string | string[]) => void
+        /** Emits when the **group-desc** property of the **options** prop is updated */
+        "update:group-desc": (arg0: boolean | boolean[]) => void
+        /** Emits when the **items-per-page** property of the **options** prop is updated */
+        "update:items-per-page": (arg0: number) => void
+        /** Emits when the **multi-sort** property of the **options** prop is updated */
+        "update:multi-sort": (arg0: boolean) => void
+        /** Emits when the **must-sort** property of the **options** prop is updated */
+        "update:must-sort": (arg0: boolean) => void
+        /** Emits when one of the **options** properties is updated */
+        "update:options": (arg0: {
+          page: number
+          itemsPerPage: number
+          sortBy: string[]
+          sortDesc: boolean[]
+          groupBy: string[]
+          groupDesc: boolean[]
+          multiSort: boolean
+          mustSort: boolean
+        }) => void
+        /** Emits when the **page** property of the **options** prop is updated */
+        "update:page": (arg0: number) => void
+        /** Emits when the **sort-by** property of the **options** prop is updated */
+        "update:sort-by": (arg0: string | string[]) => void
+        /** Emits when the **sort-desc** property of the **options** prop is updated */
+        "update:sort-desc": (arg0: boolean | boolean[]) => void
       }
     >
 
@@ -2425,6 +6000,24 @@ declare module "vue" {
           /** Adds content to the empty space in the footer */
           prepend: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** The `.sync` event for `options` prop */
+        "update:options": (arg0: {
+          page: number
+          itemsPerPage: number
+          sortBy: string[]
+          sortDesc: boolean[]
+          groupBy: string[]
+          groupDesc: boolean[]
+          multiSort: boolean
+          mustSort: boolean
+        }) => void
       }
     >
 
@@ -2456,6 +6049,11 @@ declare module "vue" {
         expandIcon?: string | null
         /** Array of expanded items. Can be used with `.sync` modifier */
         expanded?: any[] | null
+        /** Controls how how custom column filters are combined with the default filtering. Both modes only apply the default filter to columns not specified in `customKeyFilter`.
+
+- **union**: There is at least one match from the default filter, OR all custom column filters match.
+- **intersection**: There is at least one match from the default filter, AND all custom column filters match. */
+        filterMode?: string | null
         /** Fixed header to top of table. **NOTE:** Does not work in IE11 */
         fixedHeader?: boolean | null
         /** See the [`v-data-footer`](/api/v-data-footer) API for more information */
@@ -2480,6 +6078,7 @@ declare module "vue" {
         itemClass?: string | Function | null
         /** The property on each item that is used as a unique key */
         itemKey?: string | null
+        itemStyle?: string | Function | null
         /** The array of items to display */
         items?: any[] | null
         /** Changes how many items per page should be visible. Can be used with `.sync` modifier. Setting this prop to `-1` will display all items on the page */
@@ -2787,6 +6386,12 @@ declare module "vue" {
             isSelected: boolean
             select: (v: boolean) => void
             headers: DataTableHeader[]
+            on: {
+              click: (event: MouseEvent) => void
+              contextmenu: (event: MouseEvent) => void
+              dblclick: (event: MouseEvent) => void
+            }
+            attrs: { class: { [key: keyof any]: any } }
           }) => VNode[]
           /** Slot to customize a specific column */
           [name: `item.${string}`]: (args: {
@@ -2807,6 +6412,12 @@ declare module "vue" {
             isSelected: boolean
             select: (v: boolean) => void
             headers: DataTableHeader[]
+            on: {
+              click: (event: MouseEvent) => void
+              contextmenu: (event: MouseEvent) => void
+              dblclick: (event: MouseEvent) => void
+            }
+            attrs: { class: { [key: keyof any]: any } }
           }) => VNode[]
           /** Slot to replace the default `v-simple-checkbox` used when selecting rows */
           //@ts-expect-error
@@ -2819,6 +6430,12 @@ declare module "vue" {
             isSelected: boolean
             select: (v: boolean) => void
             headers: DataTableHeader[]
+            on: {
+              click: (event: MouseEvent) => void
+              contextmenu: (event: MouseEvent) => void
+              dblclick: (event: MouseEvent) => void
+            }
+            attrs: { class: { [key: keyof any]: any } }
           }) => VNode[]
           /** Defines content for when `loading` is true and no items are provided */
           loading: undefined
@@ -2858,6 +6475,91 @@ declare module "vue" {
             isMobile: boolean
           }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Pass through any native event listener to the table row elements. The first argument is the event object and the second is related data provided to the item slot. **NOTE:** will not emit when table rows are defined through a slot such as `item` or `body`. */
+        [name: `${string}:row`]: (
+          arg0: {
+            expand: (value: boolean) => void
+            headers: DataTableHeader[]
+            isExpanded: boolean
+            isMobile: boolean
+            isSelected: boolean
+            item: any
+            select: (value: boolean) => void
+          },
+          arg1: Event,
+        ) => void
+        /** Emits when a table row is clicked. This event provides 3 arguments: the first is the item data that was clicked, the second is the other related data provided by the `item` slot, and the third is the native click event. **NOTE:** will not emit when table rows are defined through a slot such as `item` or `body`. */
+        //@ts-expect-error
+        "click:row": (
+          arg0: any,
+          arg1: {
+            expand: (value: boolean) => void
+            headers: DataTableHeader[]
+            isExpanded: boolean
+            isMobile: boolean
+            isSelected: boolean
+            item: any
+            select: (value: boolean) => void
+          },
+          arg2: MouseEvent,
+        ) => void
+        /** Emits the items provided via the **items** prop, every time the internal **computedItems** is changed. */
+        "current-items": (arg0: any[]) => void
+        /** Array of selected items */
+        input: (arg0: any[]) => void
+        /** Event emitted when an item is expanded or closed */
+        "item-expanded": (arg0: { item: any; value: boolean }) => void
+        /** Event emitted when an item is selected or deselected */
+        "item-selected": (arg0: { item: any; value: boolean }) => void
+        /** Emits when the **pageCount** property of the **pagination** prop is updated */
+        "page-count": (arg0: number) => void
+        /** Emits when something changed to the `pagination` which can be provided via the `pagination` prop */
+        pagination: (arg0: {
+          page: number
+          itemsPerPage: number
+          pageStart: number
+          pageStop: number
+          pageCount: number
+          itemsLength: number
+        }) => void
+        /** Emits when the `select-all` checkbox in table header is clicked. This checkbox is enabled by the **show-select** prop */
+        "toggle-select-all": (arg0: { items: any[]; value: boolean }) => void
+        /** The `.sync` event for `expanded` prop */
+        "update:expanded": (arg0: any[]) => void
+        /** Emits when the **group-by** property of the **options** property is updated */
+        "update:group-by": (arg0: string | string[]) => void
+        /** Emits when the **group-desc** property of the **options** prop is updated */
+        "update:group-desc": (arg0: boolean | boolean[]) => void
+        /** Emits when the **items-per-page** property of the **options** prop is updated */
+        "update:items-per-page": (arg0: number) => void
+        /** Emits when the **multi-sort** property of the **options** prop is updated */
+        "update:multi-sort": (arg0: boolean) => void
+        /** Emits when the **must-sort** property of the **options** prop is updated */
+        "update:must-sort": (arg0: boolean) => void
+        /** Emits when one of the **options** properties is updated */
+        "update:options": (arg0: {
+          page: number
+          itemsPerPage: number
+          sortBy: string[]
+          sortDesc: boolean[]
+          groupBy: string[]
+          groupDesc: boolean[]
+          multiSort: boolean
+          mustSort: boolean
+        }) => void
+        /** Emits when the **page** property of the **options** prop is updated */
+        "update:page": (arg0: number) => void
+        /** Emits when the **sort-by** property of the **options** prop is updated */
+        "update:sort-by": (arg0: string | string[]) => void
+        /** Emits when the **sort-desc** property of the **options** prop is updated */
+        "update:sort-desc": (arg0: boolean | boolean[]) => void
       }
     >
 
@@ -2888,32 +6590,50 @@ declare module "vue" {
           /** Slot used to denote input component for v-edit-dialog */
           input: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emits when editing is canceled */
+        cancel: (arg0: void) => void
+        /** Emits when edit-dialog close button is pressed */
+        close: (arg0: void) => void
+        /** Emits when editing is opened */
+        open: (arg0: void) => void
+        /** Emits when edit-dialog save button is pressed */
+        save: (arg0: void) => void
       }
     >
 
-    VDataTableHeader: DefineComponent<{
-      checkboxColor?: string | null
-      /** Toggles rendering of sort button */
-      disableSort?: boolean | null
-      /** Indicates if all items in table are selected */
-      everyItem?: boolean | null
-      /** Array of header items to display */
-      headers?: any[] | null
-      /** Renders mobile view of headers */
-      mobile?: boolean | null
-      /** Options object. Identical to the one on `v-data-table` */
-      options?: object | null
-      /** Shows group by button */
-      showGroupBy?: boolean | null
-      /** Toggles rendering of select-all checkbox */
-      singleSelect?: boolean | null
-      /** Indicates if one or more items in table are selected */
-      someItems?: boolean | null
-      /** Sets the label text used by the default sort-by selector when `v-data-table` is rendering the mobile view */
-      sortByText?: string | null
-      /** Icon used for sort button */
-      sortIcon?: string | null
-    }>
+    VDataTableHeader: DefineComponent<
+      {
+        checkboxColor?: string | null
+        /** Toggles rendering of sort button */
+        disableSort?: boolean | null
+        /** Indicates if all items in table are selected */
+        everyItem?: boolean | null
+        /** Array of header items to display */
+        headers?: any[] | null
+        /** Renders mobile view of headers */
+        mobile?: boolean | null
+        /** Options object. Identical to the one on `v-data-table` */
+        options?: object | null
+        /** Shows group by button */
+        showGroupBy?: boolean | null
+        /** Toggles rendering of select-all checkbox */
+        singleSelect?: boolean | null
+        /** Indicates if one or more items in table are selected */
+        someItems?: boolean | null
+        /** Sets the label text used by the default sort-by selector when `v-data-table` is rendering the mobile view */
+        sortByText?: string | null
+        /** Icon used for sort button */
+        sortIcon?: string | null
+      },
+      {}
+    >
 
     VSimpleTable: DefineComponent<
       {
@@ -3030,6 +6750,27 @@ declare module "vue" {
           /** Displayed below the calendar, can be used for example for adding action button (`OK` and `Cancel`) */
           default: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the specified DOM event occurs on the date button */
+        "<domevent>:date": (arg0: string) => void
+        /** Emitted when the specified DOM event occurs on the month button */
+        "<domevent>:month": (arg0: string) => void
+        /** Emitted when the specified DOM event occurs on the year button */
+        "<domevent>:year": (arg0: number) => void
+        /** Reactive date picker emits `input` even when any part of the date (year/month/day) changes, but `change` event is emitted only when the day (for date pickers) or month (for month pickers) changes. If `range` prop is set, date picker emits `change` when both [from, to] are selected. */
+        change: (arg0: string) => void
+        /** The updated bound model */
+        input: (arg0: string) => void
+        /** The `.sync` event for `active-picker` prop */
+        "update:active-picker": (arg0: string) => void
+        /** The `.sync` event for `picker-date` prop */
+        "update:picker-date": (arg0: string) => void
       }
     >
 
@@ -3095,66 +6836,99 @@ declare module "vue" {
           /** The default Vue slot. */
           default: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Event that fires when clicking outside an active dialog. */
+        "click:outside": (arg0: MouseEvent) => void
+        /** The updated bound model */
+        input: (arg0: Boolean) => void
+        /** Event that fires when key is pressed. If dialog is active and not using the **persistent** prop, the **esc** key will deactivate it. */
+        keydown: (arg0: KeyboardEvent) => void
       }
     >
 
-    VDivider: DefineComponent<{
-      /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
-      dark?: boolean | null
-      /** Adds indentation (72px) for **normal** dividers, reduces max height for **vertical**. */
-      inset?: boolean | null
-      /** Applies the light theme variant to the component. */
-      light?: boolean | null
-      /** Displays dividers vertically */
-      vertical?: boolean | null
-    }>
+    VDivider: DefineComponent<
+      {
+        /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
+        dark?: boolean | null
+        /** Adds indentation (72px) for **normal** dividers, reduces max height for **vertical**. */
+        inset?: boolean | null
+        /** Applies the light theme variant to the component. */
+        light?: boolean | null
+        /** Displays dividers vertically */
+        vertical?: boolean | null
+      },
+      {}
+    >
 
-    VExpansionPanels: DefineComponent<{
-      /** Removes the margin around open panels */ accordion?: boolean | null
-      /** The **active-class** applied to children when they are activated. */
-      activeClass?: string | null
-      /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
-      dark?: boolean | null
-      /** Disables the entire expansion-panel */
-      disabled?: boolean | null
-      /** Removes the expansion-panel's elevation and borders */
-      flat?: boolean | null
-      /** Makes the expansion-panel headers focusable */
-      focusable?: boolean | null
-      /** Applies a background-color shift on hover to expansion panel headers */
-      hover?: boolean | null
-      /** Makes the expansion-panel open with a inset style */
-      inset?: boolean | null
-      /** Applies the light theme variant to the component. */
-      light?: boolean | null
-      /** Forces a value to always be selected (if available). */
-      mandatory?: boolean | null
-      /** Sets a maximum number of selections that can be made. */
-      max?: number | string | null
-      /** Allow multiple selections. The **value** prop must be an _array_. */
-      multiple?: boolean | null
-      /** Makes the expansion-panel open with an popout style */
-      popout?: boolean | null
-      /** Makes the entire expansion-panel read only. */
-      readonly?: boolean | null
-      /** Specify a custom tag used on the root element. */
-      tag?: string | null
-      /** Removes the border-radius */
-      tile?: boolean | null
-      /** Controls the opened/closed state of content in the expansion-panel. Corresponds to a zero-based index of the currently opened content. If the `multiple` prop (previously `expand` in 1.5.x) is used then it is an array of numbers where each entry corresponds to the index of the opened content.  The index order is not relevant. */
-      value?: any | null
-      /** Apply a custom value comparator function */
-      valueComparator?: Function | null
-    }>
+    VExpansionPanels: DefineComponent<
+      {
+        /** Removes the margin around open panels */ accordion?: boolean | null
+        /** The **active-class** applied to children when they are activated. */
+        activeClass?: string | null
+        /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
+        dark?: boolean | null
+        /** Disables the entire expansion-panel */
+        disabled?: boolean | null
+        /** Removes the expansion-panel's elevation and borders */
+        flat?: boolean | null
+        /** Makes the expansion-panel headers focusable */
+        focusable?: boolean | null
+        /** Applies a background-color shift on hover to expansion panel headers */
+        hover?: boolean | null
+        /** Makes the expansion-panel open with a inset style */
+        inset?: boolean | null
+        /** Applies the light theme variant to the component. */
+        light?: boolean | null
+        /** Forces a value to always be selected (if available). */
+        mandatory?: boolean | null
+        /** Sets a maximum number of selections that can be made. */
+        max?: number | string | null
+        /** Allow multiple selections. The **value** prop must be an _array_. */
+        multiple?: boolean | null
+        /** Makes the expansion-panel open with an popout style */
+        popout?: boolean | null
+        /** Makes the entire expansion-panel read only. */
+        readonly?: boolean | null
+        /** Specify a custom tag used on the root element. */
+        tag?: string | null
+        /** Removes the border-radius */
+        tile?: boolean | null
+        /** Controls the opened/closed state of content in the expansion-panel. Corresponds to a zero-based index of the currently opened content. If the `multiple` prop (previously `expand` in 1.5.x) is used then it is an array of numbers where each entry corresponds to the index of the opened content.  The index order is not relevant. */
+        value?: any | null
+        /** Apply a custom value comparator function */
+        valueComparator?: Function | null
+      },
+      {}
+    >
 
-    VExpansionPanel: DefineComponent<{
-      /** Configure the active CSS class applied when the link is active. You can find more information about the [**active-class** prop](https://router.vuejs.org/api/#active-class) on the vue-router documentation. */
-      activeClass?: string | null
-      /** Disables the expansion-panel content */
-      disabled?: boolean | null
-      /** Makes the expansion-panel content read only. */
-      readonly?: boolean | null
-    }>
+    VExpansionPanel: DefineComponent<
+      {
+        /** Configure the active CSS class applied when the link is active. You can find more information about the [**active-class** prop](https://router.vuejs.org/api/#active-class) on the vue-router documentation. */
+        activeClass?: string | null
+        /** Disables the expansion-panel content */
+        disabled?: boolean | null
+        /** Makes the expansion-panel content read only. */
+        readonly?: boolean | null
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Toggles the value of the selected panel */
+        change: (arg0: void) => void
+        /** Mouse click event */
+        click: (arg0: MouseEvent) => void
+      }
+    >
 
     VExpansionPanelHeader: DefineComponent<
       {
@@ -3172,10 +6946,19 @@ declare module "vue" {
       {
         $scopedSlots: Readonly<{
           /** Expansion header actions */
-          actions: undefined
+          actions: (args: { open: boolean }) => VNode[]
           /** The default Vue slot. */
           default: (args: { open: boolean }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Mouse click event */
+        click: (arg0: MouseEvent) => void
       }
     >
 
@@ -3189,7 +6972,7 @@ declare module "vue" {
       {
         $scopedSlots: Readonly<{
           /** The default Vue slot. */
-          default: undefined
+          default: (args: { open: boolean }) => VNode[]
         }>
       }
     >
@@ -3335,6 +7118,41 @@ declare module "vue" {
             text: string
           }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the input is blurred */
+        blur: (arg0: Event) => void
+        /** Emitted when the input is changed by user interaction */
+        change: (arg0: File[]) => void
+        /** Emitted when input is clicked */
+        click: (arg0: MouseEvent) => void
+        /** Emitted when appended icon is clicked */
+        "click:append": (arg0: Event) => void
+        /** Emitted when appended outer icon is clicked */
+        "click:append-outer": (arg0: Event) => void
+        /** Emitted when clearable icon clicked */
+        "click:clear": (arg0: Event) => void
+        /** Emitted when prepended icon is clicked */
+        "click:prepend": (arg0: Event) => void
+        /** Emitted when prepended inner icon is clicked */
+        "click:prepend-inner": (arg0: Event) => void
+        /** Emitted when component is focused */
+        focus: (arg0: Event) => void
+        /** The updated bound model */
+        input: (arg0: any) => void
+        /** Emitted when **any** key is pressed */
+        keydown: (arg0: KeyboardEvent) => void
+        /** Emitted when click is pressed */
+        mousedown: (arg0: MouseEvent) => void
+        /** Emitted when click is released */
+        mouseup: (arg0: MouseEvent) => void
+        /** The `error.sync` event */
+        "update:error": (arg0: boolean) => void
       }
     >
 
@@ -3405,6 +7223,17 @@ declare module "vue" {
           /** The default Vue slot. */
           default: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** The updated bound model */
+        input: (arg0: boolean) => void
+        /** Emitted when form is submitted */
+        submit: (arg0: Event) => void
       }
     >
 
@@ -3640,6 +7469,19 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** Slot for image placeholder */
           placeholder: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when there is an error */
+        error: (arg0: object | string) => void
+        /** Emitted when image is loaded */
+        load: (arg0: object | string) => void
+        /** Emitted when the image starts to load */
+        loadstart: (arg0: string) => void
       }
     >
 
@@ -3706,6 +7548,25 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           label: undefined
           message: (args: { key: number; message: string }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the input is changed by user interaction */
+        change: (arg0: any) => void
+        /** Emitted when appended icon is clicked */
+        "click:append": (arg0: Event) => void
+        /** Emitted when prepended icon is clicked */
+        "click:prepend": (arg0: Event) => void
+        /** Emitted when click is pressed */
+        mousedown: (arg0: MouseEvent) => void
+        /** Emitted when click is released */
+        mouseup: (arg0: MouseEvent) => void
+        /** The `error.sync` event */
+        "update:error": (arg0: boolean) => void
       }
     >
 
@@ -3729,26 +7590,38 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
       }
     >
 
-    VItemGroup: DefineComponent<{
-      /** Configure the active CSS class applied when the link is active. You can find more information about the [**active-class** prop](https://router.vuejs.org/api/#active-class) on the vue-router documentation. */
-      activeClass?: string | null
-      /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
-      dark?: boolean | null
-      /** Applies the light theme variant to the component. */
-      light?: boolean | null
-      /** Forces a value to always be selected (if available). */
-      mandatory?: boolean | null
-      /** Sets a maximum number of selections that can be made. */
-      max?: number | string | null
-      /** Allow multiple selections. The **value** prop must be an _array_. */
-      multiple?: boolean | null
-      /** Specify a custom tag used on the root element. */
-      tag?: string | null
-      /** The designated model value for the component. */
-      value?: any | null
-      /** Apply a custom value comparator function */
-      valueComparator?: Function | null
-    }>
+    VItemGroup: DefineComponent<
+      {
+        /** Configure the active CSS class applied when the link is active. You can find more information about the [**active-class** prop](https://router.vuejs.org/api/#active-class) on the vue-router documentation. */
+        activeClass?: string | null
+        /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
+        dark?: boolean | null
+        /** Applies the light theme variant to the component. */
+        light?: boolean | null
+        /** Forces a value to always be selected (if available). */
+        mandatory?: boolean | null
+        /** Sets a maximum number of selections that can be made. */
+        max?: number | string | null
+        /** Allow multiple selections. The **value** prop must be an _array_. */
+        multiple?: boolean | null
+        /** Specify a custom tag used on the root element. */
+        tag?: string | null
+        /** The designated model value for the component. */
+        value?: any | null
+        /** Apply a custom value comparator function */
+        valueComparator?: Function | null
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the component value is changed by user interaction */
+        change: (arg0: any[] | any) => void
+      }
+    >
 
     VLazy: DefineComponent<
       {
@@ -3926,6 +7799,15 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** Prepends an icon to the component, uses the same syntax as `v-icon` */
           prependIcon: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Event that is emitted when the component is clicked */
+        click: (arg0: MouseEvent) => void
       }
     >
 
@@ -3988,6 +7870,16 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
             toggle: (...args: any[]) => any
           }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Event that is emitted when the component is clicked */
+        click: (arg0: MouseEvent | KeyboardEvent) => void
+        keydown: (arg0: KeyboardEvent) => void
       }
     >
 
@@ -4076,12 +7968,25 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** The default Vue slot. */
           default: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the component value is changed by user interaction */
+        change: (arg0: any[] | any) => void
       }
     >
 
-    VMain: DefineComponent<{
-      /** Specify a custom tag used on the root element. */ tag?: string | null
-    }>
+    VMain: DefineComponent<
+      {
+        /** Specify a custom tag used on the root element. */
+        tag?: string | null
+      },
+      {}
+    >
 
     VMenu: DefineComponent<
       {
@@ -4105,6 +8010,8 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         closeOnContentClick?: boolean | null
         /** Applies a custom class to the detached element. This is useful because the content is moved to the beginning of the `v-app` component (unless the **attach** prop is provided) and is not targetable by classes passed directly on the component. */
         contentClass?: string | null
+        /** Applies props/attributes to the detached menu. This is useful because the content is moved to the beginning of the `v-app` component (unless the attach prop is provided) and is not targetable by classes passed directly on the component. You could use this for example for applying a `data-cy` for cypress testing purposes. */
+        contentProps?: object | null
         /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
         dark?: boolean | null
         /** Removes all keyboard interaction */
@@ -4186,6 +8093,15 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** The default Vue slot. */
           default: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** The updated bound model */
+        input: (arg0: boolean) => void
       }
     >
 
@@ -4259,27 +8175,56 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** A slot at the top of the drawer */
           prepend: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** The updated bound model */
+        input: (arg0: boolean) => void
+        /** Emits event object when transition is complete. */
+        transitionend: (arg0: object) => void
+        /** The `mini-variant.sync` event */
+        "update:mini-variant": (arg0: boolean) => void
       }
     >
 
-    VOtpInput: DefineComponent<{
-      /** Applies the dark theme variant to the component. This will default the components color to _white_ unless you've configured your [application theme](/customization/theme) to **dark** or if you are using the **color** prop on the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
-      dark?: boolean | null
-      /** Disable the input */
-      disabled?: boolean | null
-      /** Sets the DOM id on the component */
-      id?: string | null
-      /** The OTP field's length */
-      length?: number | string | null
-      /** Outlined style applied by default to the input, set to `true` to apply plain style */
-      plain?: boolean | null
-      /** Puts input in readonly state */
-      readonly?: boolean | null
-      /** Supported types: `text`, `password`, `number` */
-      type?: string | null
-      /** The input's value */
-      value?: any | null
-    }>
+    VOtpInput: DefineComponent<
+      {
+        /** Applies the dark theme variant to the component. This will default the components color to _white_ unless you've configured your [application theme](/customization/theme) to **dark** or if you are using the **color** prop on the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
+        dark?: boolean | null
+        /** Disable the input */
+        disabled?: boolean | null
+        /** Sets the DOM id on the component */
+        id?: string | null
+        /** The OTP field's length */
+        length?: number | string | null
+        /** Outlined style applied by default to the input, set to `true` to apply plain style */
+        plain?: boolean | null
+        /** Puts input in readonly state */
+        readonly?: boolean | null
+        /** Supported types: `text`, `password`, `number` */
+        type?: string | null
+        /** The input's value */
+        value?: any | null
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the input is changed by user interaction */
+        change: (arg0: string) => void
+        /** Emitted when the input is filled completely and cursor is blurred */
+        finish: (arg0: string) => void
+        /** The updated bound model */
+        input: (arg0: string) => void
+      }
+    >
 
     VOverflowBtn: DefineComponent<
       {
@@ -4342,7 +8287,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         hideDetails?: boolean | string | null
         /** Hides the menu when there are no options to show.  Useful for preventing the menu from opening before results are fetched asynchronously.  Also has the effect of opening the menu when the `items` array changes if not already open. */
         hideNoData?: boolean | null
-        /** Do not display in the select menu items that are already selected */
+        /** Do not display in the select menu items that are already selected. Also removes checkboxes from the list when multiple */
         hideSelected?: boolean | null
         /** Hint text */
         hint?: string | null
@@ -4426,7 +8371,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         validateOnBlur?: boolean | null
         /** The input's value */
         value?: any | null
-        /** The comparison algorithm used for values. [More info](https://github.com/vuetifyjs/vuetify/blob/master/packages/vuetify/src/util/helpers.ts) */
+        /** The comparison algorithm used for values. [More info](https://github.com/vuetifyjs/vuetify/blob/v2-stable/packages/vuetify/src/util/helpers.ts) */
         valueComparator?: Function | null
       },
       {
@@ -4474,6 +8419,45 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
             disabled: boolean
           }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the input is blurred */
+        blur: (arg0: Event) => void
+        /** Emitted when the input is changed by user interaction */
+        change: (arg0: any) => void
+        /** Emitted when input is clicked */
+        click: (arg0: MouseEvent) => void
+        /** Emitted when appended icon is clicked */
+        "click:append": (arg0: Event) => void
+        /** Emitted when appended outer icon is clicked */
+        "click:append-outer": (arg0: Event) => void
+        /** Emitted when clearable icon clicked */
+        "click:clear": (arg0: Event) => void
+        /** Emitted when prepended icon is clicked */
+        "click:prepend": (arg0: Event) => void
+        /** Emitted when prepended inner icon is clicked */
+        "click:prepend-inner": (arg0: Event) => void
+        /** Emitted when component is focused */
+        focus: (arg0: Event) => void
+        /** The updated bound model */
+        input: (arg0: any) => void
+        /** Emitted when **any** key is pressed */
+        keydown: (arg0: KeyboardEvent) => void
+        /** Emitted when click is pressed */
+        mousedown: (arg0: MouseEvent) => void
+        /** Emitted when click is released */
+        mouseup: (arg0: MouseEvent) => void
+        /** The `error.sync` event */
+        "update:error": (arg0: boolean) => void
+        /** Emitted when menu item is selected using keyboard arrows */
+        "update:list-index": (arg0: number) => void
+        /** The `search-input.sync` event */
+        "update:search-input": (arg0: string) => void
       }
     >
 
@@ -4502,32 +8486,50 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
       }
     >
 
-    VPagination: DefineComponent<{
-      /** Shape pagination elements as circles */ circle?: boolean | null
-      /** Applies specified color to the control - it can be the name of material color (for example `success` or `purple`) or css color (`#033` or `rgba(255, 0, 0, 0.5)`). You can find a list of built-in classes on the [colors page](/styles/colors#material-colors). */
-      color?: string | null
-      currentPageAriaLabel?: string | null
-      /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
-      dark?: boolean | null
-      /** Disables component */
-      disabled?: boolean | null
-      /** The length of the pagination component */
-      length?: number | null
-      /** Applies the light theme variant to the component. */
-      light?: boolean | null
-      nextAriaLabel?: string | null
-      /** Specify the icon to use for the next icon */
-      nextIcon?: string | null
-      pageAriaLabel?: string | null
-      /** Specify the icon to use for the prev icon */
-      prevIcon?: string | null
-      previousAriaLabel?: string | null
-      /** Specify the max total visible pagination numbers */
-      totalVisible?: number | string | null
-      /** Current selected page */
-      value?: number | null
-      wrapperAriaLabel?: string | null
-    }>
+    VPagination: DefineComponent<
+      {
+        /** Shape pagination elements as circles */ circle?: boolean | null
+        /** Applies specified color to the control - it can be the name of material color (for example `success` or `purple`) or css color (`#033` or `rgba(255, 0, 0, 0.5)`). You can find a list of built-in classes on the [colors page](/styles/colors#material-colors). */
+        color?: string | null
+        currentPageAriaLabel?: string | null
+        /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
+        dark?: boolean | null
+        /** Disables component */
+        disabled?: boolean | null
+        /** The length of the pagination component */
+        length?: number | null
+        /** Applies the light theme variant to the component. */
+        light?: boolean | null
+        navigationColor?: string | null
+        navigationTextColor?: string | null
+        nextAriaLabel?: string | null
+        /** Specify the icon to use for the next icon */
+        nextIcon?: string | null
+        pageAriaLabel?: string | null
+        /** Specify the icon to use for the prev icon */
+        prevIcon?: string | null
+        previousAriaLabel?: string | null
+        /** Specify the max total visible pagination numbers */
+        totalVisible?: number | string | null
+        /** Current selected page */
+        value?: number | null
+        wrapperAriaLabel?: string | null
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** The updated bound model */
+        input: (arg0: number) => void
+        /** Emitted when going to next item */
+        next: (arg0: void) => void
+        /** Emitted when going to previous item */
+        previous: (arg0: void) => void
+      }
+    >
 
     VSheet: DefineComponent<
       {
@@ -4659,6 +8661,15 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** Provides the current value of the component */
           default: (args: { value: number }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the component value is changed by user interaction */
+        change: (arg0: number) => void
       }
     >
 
@@ -4739,6 +8750,25 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** Adds an item outside the input and before input content */
           prepend: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the input is changed by user interaction */
+        change: (arg0: any) => void
+        /** Emitted when appended icon is clicked */
+        "click:append": (arg0: Event) => void
+        /** Emitted when prepended icon is clicked */
+        "click:prepend": (arg0: Event) => void
+        /** Emitted when click is pressed */
+        mousedown: (arg0: MouseEvent) => void
+        /** Emitted when click is released */
+        mouseup: (arg0: MouseEvent) => void
+        /** The `error.sync` event */
+        "update:error": (arg0: boolean) => void
       }
     >
 
@@ -4779,6 +8809,27 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           label: undefined
           message: (args: { key: number; message: string }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the input is changed by user interaction */
+        change: (arg0: any) => void
+        /** Emitted when input is clicked. **Note:** the **change** event should be used instead of **click** when monitoring state change */
+        click: (arg0: MouseEvent) => void
+        /** Emitted when appended icon is clicked */
+        "click:append": (arg0: Event) => void
+        /** Emitted when prepended icon is clicked */
+        "click:prepend": (arg0: Event) => void
+        /** Emitted when click is pressed */
+        mousedown: (arg0: MouseEvent) => void
+        /** Emitted when click is released */
+        mouseup: (arg0: MouseEvent) => void
+        /** The `error.sync` event */
+        "update:error": (arg0: boolean) => void
       }
     >
 
@@ -4879,6 +8930,33 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** Replaces the content inside the thumb label */
           "thumb-label": (args: { value: number | string }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the input is changed by user interaction */
+        change: (arg0: any[]) => void
+        /** Emitted when input is clicked */
+        click: (arg0: MouseEvent) => void
+        /** Emitted when appended icon is clicked */
+        "click:append": (arg0: Event) => void
+        /** Emitted when prepended icon is clicked */
+        "click:prepend": (arg0: Event) => void
+        /** Slider value emitted at the end of slider movement */
+        end: (arg0: any[]) => void
+        /** The updated bound model */
+        input: (arg0: any[]) => void
+        /** Emitted when click is pressed */
+        mousedown: (arg0: MouseEvent) => void
+        /** Emitted when click is released */
+        mouseup: (arg0: MouseEvent) => void
+        /** Slider value emitted at start of slider movement */
+        start: (arg0: any[]) => void
+        /** The `error.sync` event */
+        "update:error": (arg0: boolean) => void
       }
     >
 
@@ -4945,6 +9023,15 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
             value: number
           }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emits the rating number when this value changes */
+        input: (arg0: Number) => void
       }
     >
 
@@ -5028,7 +9115,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         height?: number | string | null
         /** Hides hint and validation errors. When set to `auto` messages will be rendered only if there's a message (hint, error message, counter value etc) to display */
         hideDetails?: boolean | string | null
-        /** Do not display in the select menu items that are already selected */
+        /** Do not display in the select menu items that are already selected. Also removes checkboxes from the list when multiple */
         hideSelected?: boolean | null
         /** Hint text */
         hint?: string | null
@@ -5106,7 +9193,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         validateOnBlur?: boolean | null
         /** The input's value */
         value?: any | null
-        /** The comparison algorithm used for values. [More info](https://github.com/vuetifyjs/vuetify/blob/master/packages/vuetify/src/util/helpers.ts) */
+        /** The comparison algorithm used for values. [More info](https://github.com/vuetifyjs/vuetify/blob/v2-stable/packages/vuetify/src/util/helpers.ts) */
         valueComparator?: Function | null
       },
       {
@@ -5154,6 +9241,45 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
             disabled: boolean
           }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the input is blurred */
+        blur: (arg0: Event) => void
+        /** Emitted when the input is changed by user interaction */
+        change: (arg0: any) => void
+        /** Emitted when input is clicked */
+        click: (arg0: MouseEvent) => void
+        /** Emitted when appended icon is clicked */
+        "click:append": (arg0: Event) => void
+        /** Emitted when appended outer icon is clicked */
+        "click:append-outer": (arg0: Event) => void
+        /** Emitted when clearable icon clicked */
+        "click:clear": (arg0: Event) => void
+        /** Emitted when prepended icon is clicked */
+        "click:prepend": (arg0: Event) => void
+        /** Emitted when prepended inner icon is clicked */
+        "click:prepend-inner": (arg0: Event) => void
+        /** Emitted when component is focused */
+        focus: (arg0: Event) => void
+        /** The updated bound model */
+        input: (arg0: any) => void
+        /** Emitted when **any** key is pressed */
+        keydown: (arg0: KeyboardEvent) => void
+        /** Emitted when click is pressed */
+        mousedown: (arg0: MouseEvent) => void
+        /** Emitted when click is released */
+        mouseup: (arg0: MouseEvent) => void
+        /** The `error.sync` event */
+        "update:error": (arg0: boolean) => void
+        /** Emitted when menu item is selected using keyboard arrows */
+        "update:list-index": (arg0: number) => void
+        /** The `search-input.sync` event */
+        "update:search-input": (arg0: string) => void
       }
     >
 
@@ -5171,6 +9297,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         light?: boolean | null
         /** Applies a loading animation with a on-hover loading cursor. A value of **false** will only work when there is content in the `default` slot. */
         loading?: boolean | null
+        loadingText?: string | null
         /** Sets the maximum height for the component. */
         maxHeight?: number | string | null
         /** Sets the maximum width for the component. */
@@ -5295,6 +9422,33 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** Replaces the content inside the thumb label */
           "thumb-label": (args: { value: number | string }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the input is changed by user interaction */
+        change: (arg0: number) => void
+        /** Emitted when input is clicked */
+        click: (arg0: MouseEvent) => void
+        /** Emitted when appended icon is clicked */
+        "click:append": (arg0: Event) => void
+        /** Emitted when prepended icon is clicked */
+        "click:prepend": (arg0: Event) => void
+        /** Slider value emitted at the end of slider movement */
+        end: (arg0: number) => void
+        /** The updated bound model */
+        input: (arg0: number) => void
+        /** Emitted when click is pressed */
+        mousedown: (arg0: MouseEvent) => void
+        /** Emitted when click is released */
+        mouseup: (arg0: MouseEvent) => void
+        /** Slider value emitted at start of slider movement */
+        start: (arg0: number) => void
+        /** The `error.sync` event */
+        "update:error": (arg0: boolean) => void
       }
     >
 
@@ -5320,7 +9474,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         nextIcon?: string | null
         /** The prepended slot when arrows are shown */
         prevIcon?: string | null
-        /** Change when the overflow arrow indicators are shown. By **default**, arrows *always* display on Desktop when the container is overflowing. When the container overflows on mobile, arrows are not shown by default. A **show-arrows** value of `true` allows these arrows to show on Mobile if the container overflowing. A value of `desktop` *always* displays arrows on Desktop while a value of `mobile` always displays arrows on Mobile. A value of `always` always displays arrows on Desktop *and* Mobile. Find more information on how to customize breakpoint thresholds on the [breakpoints page](/customizing/breakpoints). */
+        /** Change when the overflow arrow indicators are shown. By **default**, arrows *always* display on Desktop when the container is overflowing. When the container overflows on mobile, arrows are not shown by default. A **show-arrows** value of `true` allows these arrows to show on Mobile if the container overflowing. A value of `desktop` *always* displays arrows on Desktop while a value of `mobile` always displays arrows on Mobile. A value of `always` always displays arrows on Desktop *and* Mobile. A value of `never` always hides the arrows. Find more information on how to customize breakpoint thresholds on the [breakpoints page](/customizing/breakpoints). */
         showArrows?: boolean | string | null
         /** Specify a custom tag used on the root element. */
         tag?: string | null
@@ -5338,6 +9492,19 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** The prev slot */
           prev: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the component value is changed by user interaction */
+        change: (arg0: any[] | any) => void
+        /** Emitted when the next is clicked */
+        "click:next": (arg0: void) => void
+        /** Emitted when the prev is clicked */
+        "click:prev": (arg0: void) => void
       }
     >
 
@@ -5429,6 +9596,15 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** The default Vue slot. */
           default: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** The updated bound model */
+        input: (arg0: boolean) => void
       }
     >
 
@@ -5563,6 +9739,15 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** The default Vue slot. */
           default: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when step is changed by user interaction */
+        change: (arg0: number) => void
       }
     >
 
@@ -5603,6 +9788,15 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** The default Vue slot. */
           default: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when component is clicked */
+        click: (arg0: MouseEvent) => void
       }
     >
 
@@ -5724,29 +9918,53 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           label: undefined
           message: (args: { key: number; message: string }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the input is changed by user interaction */
+        change: (arg0: any) => void
+        /** Emitted when input is clicked. **Note:** the **change** event should be used instead of **click** when monitoring state change */
+        click: (arg0: MouseEvent) => void
+        /** Emitted when appended icon is clicked */
+        "click:append": (arg0: Event) => void
+        /** Emitted when prepended icon is clicked */
+        "click:prepend": (arg0: Event) => void
+        /** Emitted when click is pressed */
+        mousedown: (arg0: MouseEvent) => void
+        /** Emitted when click is released */
+        mouseup: (arg0: MouseEvent) => void
+        /** The `error.sync` event */
+        "update:error": (arg0: boolean) => void
       }
     >
 
-    VSystemBar: DefineComponent<{
-      /** Applies **position: absolute** to the component. */
-      absolute?: boolean | null
-      /** Designates the component as part of the application layout. Used for dynamically adjusting content sizing. Components using this prop should reside **outside** of `v-main` component to function properly. You can find more information about layouts on the [application page](/components/application). **Note:** this prop automatically applies **position: fixed** to the layout element. You can overwrite this functionality by using the `absolute` prop */
-      app?: boolean | null
-      /** Applies specified color to the control - it can be the name of material color (for example `success` or `purple`) or css color (`#033` or `rgba(255, 0, 0, 0.5)`). You can find a list of built-in classes on the [colors page](/styles/colors#material-colors). */
-      color?: string | null
-      /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
-      dark?: boolean | null
-      /** Applies **position: fixed** to the component. */
-      fixed?: boolean | null
-      /** Sets the height for the component. */
-      height?: number | string | null
-      /** Applies the light theme variant to the component. */
-      light?: boolean | null
-      /** Reduces the system bar opacity. */
-      lightsOut?: boolean | null
-      /** Increases the system bar height to 32px (24px default). */
-      window?: boolean | null
-    }>
+    VSystemBar: DefineComponent<
+      {
+        /** Applies **position: absolute** to the component. */
+        absolute?: boolean | null
+        /** Designates the component as part of the application layout. Used for dynamically adjusting content sizing. Components using this prop should reside **outside** of `v-main` component to function properly. You can find more information about layouts on the [application page](/components/application). **Note:** this prop automatically applies **position: fixed** to the layout element. You can overwrite this functionality by using the `absolute` prop */
+        app?: boolean | null
+        /** Applies specified color to the control - it can be the name of material color (for example `success` or `purple`) or css color (`#033` or `rgba(255, 0, 0, 0.5)`). You can find a list of built-in classes on the [colors page](/styles/colors#material-colors). */
+        color?: string | null
+        /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
+        dark?: boolean | null
+        /** Applies **position: fixed** to the component. */
+        fixed?: boolean | null
+        /** Sets the height for the component. */
+        height?: number | string | null
+        /** Applies the light theme variant to the component. */
+        light?: boolean | null
+        /** Reduces the system bar opacity. */
+        lightsOut?: boolean | null
+        /** Increases the system bar height to 32px (24px default). */
+        window?: boolean | null
+      },
+      {}
+    >
 
     VTabs: DefineComponent<
       {
@@ -5802,6 +10020,15 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** The default Vue slot. */
           default: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when tab is changed by user interaction. Returns a string if **href** attribute is set and number if it is not. */
+        change: (arg0: number | string) => void
       }
     >
 
@@ -5833,6 +10060,7 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         replace?: boolean | null
         /** Applies the [v-ripple](/directives/ripple) directive. */
         ripple?: boolean | object | null
+        tabValue?: any | null
         /** Specify a custom tag used on the root element. */
         tag?: string | null
         /** Designates the target attribute. This should only be applied when using the **href** prop. */
@@ -5845,6 +10073,19 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** The default Vue slot. */
           default: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when tab becomes active */
+        change: (arg0: void) => void
+        /** Emitted when the component is clicked */
+        click: (arg0: MouseEvent) => void
+        /** Emitted when **enter** key is pressed */
+        keydown: (arg0: KeyboardEvent) => void
       }
     >
 
@@ -5917,13 +10158,25 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** The default Vue slot. */
           default: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when user swipes between tabs. */
+        change: (arg0: string) => void
       }
     >
 
-    VTabsSlider: DefineComponent<{
-      /** Applies specified color to the control - it can be the name of material color (for example `success` or `purple`) or css color (`#033` or `rgba(255, 0, 0, 0.5)`). You can find a list of built-in classes on the [colors page](/styles/colors#material-colors). */
-      color?: string | null
-    }>
+    VTabsSlider: DefineComponent<
+      {
+        /** Applies specified color to the control - it can be the name of material color (for example `success` or `purple`) or css color (`#033` or `rgba(255, 0, 0, 0.5)`). You can find a list of built-in classes on the [colors page](/styles/colors#material-colors). */
+        color?: string | null
+      },
+      {}
+    >
 
     VTextarea: DefineComponent<
       {
@@ -6053,6 +10306,41 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** Slot for custom progress linear (displayed when **loading** prop is not equal to Boolean False) */
           progress: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the input is blurred */
+        blur: (arg0: Event) => void
+        /** Emitted when the input is changed by user interaction */
+        change: (arg0: any) => void
+        /** Emitted when input is clicked */
+        click: (arg0: MouseEvent) => void
+        /** Emitted when appended icon is clicked */
+        "click:append": (arg0: Event) => void
+        /** Emitted when appended outer icon is clicked */
+        "click:append-outer": (arg0: Event) => void
+        /** Emitted when clearable icon clicked */
+        "click:clear": (arg0: Event) => void
+        /** Emitted when prepended icon is clicked */
+        "click:prepend": (arg0: Event) => void
+        /** Emitted when prepended inner icon is clicked */
+        "click:prepend-inner": (arg0: Event) => void
+        /** Emitted when component is focused */
+        focus: (arg0: Event) => void
+        /** The updated bound model */
+        input: (arg0: any) => void
+        /** Emitted when **any** key is pressed */
+        keydown: (arg0: KeyboardEvent) => void
+        /** Emitted when click is pressed */
+        mousedown: (arg0: MouseEvent) => void
+        /** Emitted when click is released */
+        mouseup: (arg0: MouseEvent) => void
+        /** The `error.sync` event */
+        "update:error": (arg0: boolean) => void
       }
     >
 
@@ -6180,17 +10468,55 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** Slot for custom progress linear (displayed when **loading** prop is not equal to Boolean False) */
           progress: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the input is blurred */
+        blur: (arg0: Event) => void
+        /** Emitted when the input is changed by user interaction */
+        change: (arg0: any) => void
+        /** Emitted when input is clicked */
+        click: (arg0: MouseEvent) => void
+        /** Emitted when appended icon is clicked */
+        "click:append": (arg0: Event) => void
+        /** Emitted when appended outer icon is clicked */
+        "click:append-outer": (arg0: Event) => void
+        /** Emitted when clearable icon clicked */
+        "click:clear": (arg0: Event) => void
+        /** Emitted when prepended icon is clicked */
+        "click:prepend": (arg0: Event) => void
+        /** Emitted when prepended inner icon is clicked */
+        "click:prepend-inner": (arg0: Event) => void
+        /** Emitted when component is focused */
+        focus: (arg0: Event) => void
+        /** The updated bound model */
+        input: (arg0: any) => void
+        /** Emitted when **any** key is pressed */
+        keydown: (arg0: KeyboardEvent) => void
+        /** Emitted when click is pressed */
+        mousedown: (arg0: MouseEvent) => void
+        /** Emitted when click is released */
+        mouseup: (arg0: MouseEvent) => void
+        /** The `error.sync` event */
+        "update:error": (arg0: boolean) => void
       }
     >
 
-    VThemeProvider: DefineComponent<{
-      /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
-      dark?: boolean | null
-      /** Applies the light theme variant to the component. */
-      light?: boolean | null
-      /** Use the current value of `$vuetify.theme.dark` as opposed to the provided one. */
-      root?: boolean | null
-    }>
+    VThemeProvider: DefineComponent<
+      {
+        /** Applies the dark theme variant to the component. You can find more information on the Material Design documentation for [dark themes](https://material.io/design/color/dark-theme.html). */
+        dark?: boolean | null
+        /** Applies the light theme variant to the component. */
+        light?: boolean | null
+        /** Use the current value of `$vuetify.theme.dark` as opposed to the provided one. */
+        root?: boolean | null
+      },
+      {}
+    >
 
     VTimeline: DefineComponent<
       {
@@ -6252,6 +10578,8 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
 
     VTimePicker: DefineComponent<
       {
+        /** Determines which picker is being displayed. Allowed values: `'HOUR'`, `'MINUTE'`, `'SECOND'` */
+        activePicker?: string | null
         /** Restricts which hours can be selected */
         allowedHours?: Function | any[] | null
         /** Restricts which minutes can be selected */
@@ -6302,6 +10630,27 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
           /** Displayed below the clock, can be used for example for adding action button (`OK` and `Cancel`) */
           default: undefined
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the time selection is done (when user changes the minute for HH:MM picker and the second for HH:MM:SS picker */
+        change: (arg0: string) => void
+        /** Emitted when user selects the hour */
+        "click:hour": (arg0: string) => void
+        /** Emitted when user selects the minute */
+        "click:minute": (arg0: string) => void
+        /** Emitted when user selects the second */
+        "click:second": (arg0: string) => void
+        /** The updated bound model */
+        input: (arg0: string) => void
+        /** The `.sync` event for `active-picker` prop */
+        "update:active-picker": (arg0: string) => void
+        /** Emitted when user clicks the AM/PM button */
+        "update:period": (arg0: string) => void
       }
     >
 
@@ -6582,6 +10931,19 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
             open: boolean
           }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emits the array of selected items when this value changes */
+        input: (arg0: any[]) => void
+        /** Emits the array of active items when this value changes */
+        "update:active": (arg0: any[]) => void
+        /** Emits the array of open items when this value changes */
+        "update:open": (arg0: any[]) => void
       }
     >
 
@@ -6662,6 +11024,15 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
             on: { click: eventHandler }
           }) => VNode[]
         }>
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        /** Emitted when the component value is changed by user interaction */
+        change: (arg0: number) => void
       }
     >
 
@@ -6688,262 +11059,325 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
       }
     >
 
-    VCarouselTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VCarouselTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VCarouselReverseTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VCarouselReverseTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VTabTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VTabTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VTabReverseTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VTabReverseTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VMenuTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VMenuTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VFabTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VFabTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VDialogTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VDialogTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VDialogBottomTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VDialogBottomTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VDialogTopTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VDialogTopTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VFadeTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VFadeTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VScaleTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VScaleTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VScrollXTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VScrollXTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VScrollXReverseTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VScrollXReverseTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VScrollYTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VScrollYTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VScrollYReverseTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VScrollYReverseTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VSlideXTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VSlideXTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VSlideXReverseTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VSlideXReverseTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VSlideYTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VSlideYTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VSlideYReverseTransition: DefineComponent<{
-      /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
-      group?: boolean | null
-      /** Hides the leaving element (no exit animation) */
-      hideOnLeave?: boolean | null
-      /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
-      leaveAbsolute?: boolean | null
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-      /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
-      origin?: string | null
-    }>
+    VSlideYReverseTransition: DefineComponent<
+      {
+        /** Creates a `transition-group` component. [vue docs](https://vuejs.org/v2/api/#transition-group) */
+        group?: boolean | null
+        /** Hides the leaving element (no exit animation) */
+        hideOnLeave?: boolean | null
+        /** Absolutely positions the leaving element (useful for [FLIP](https://aerotwist.com/blog/flip-your-animations/)) */
+        leaveAbsolute?: boolean | null
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+        /** Sets the transition origin on the element. You can find more information on the MDN documentation [for transition origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin). */
+        origin?: string | null
+      },
+      {}
+    >
 
-    VExpandTransition: DefineComponent<{
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-    }>
+    VExpandTransition: DefineComponent<
+      {
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+      },
+      {}
+    >
 
-    VExpandXTransition: DefineComponent<{
-      /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
-      mode?: string | null
-    }>
+    VExpandXTransition: DefineComponent<
+      {
+        /** Sets the transition mode (does not apply to transition-group). You can find more information on the Vue documentation [for transition modes](https://vuejs.org/v2/api/#transition). */
+        mode?: string | null
+      },
+      {}
+    >
   }
 }
 
