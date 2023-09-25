@@ -28,7 +28,7 @@ function convertType(typeStr) {
 function getPropType(attr) {
   const attrType = attr.value.type;
   if (attr.name == "rules" && attr.description?.includes("error message")) {
-    return "InputValidationRules"
+    return "InputValidationRules";
   }
   if (typeof attrType === "string") {
     return convertType(attrType);
@@ -50,7 +50,7 @@ function getSlotPropType(type) {
     .replace(/\/\/.*/, "")
     .replaceAll("):", ")=>")
     .replace(/(aria-[a-z]*):/g, '"$1":')
-    .replace(/ = \w*/g, '') // remove default values
+    .replace(/ = \w*/g, "") // remove default values
     .replaceAll("function", "Function")
     .replaceAll("Function", "(...args: any[]) => any")
     .replaceAll("object", "{ [key: keyof any]: any }")
@@ -62,7 +62,10 @@ function getSlotName(name) {
     return "[name:`header.${string}`]";
   } else if (name === "item.<name>") {
     return "[name:`item.${string}`]";
-  } else if (name.startsWith("item.data-table") || name.startsWith("header.data-table")) {
+  } else if (
+    name.startsWith("item.data-table") ||
+    name.startsWith("header.data-table")
+  ) {
     // Ts doesn't allow overriding template literals with more specific keys/values.
     return `//@ts-expect-error\n '${name}'`;
   }
@@ -75,17 +78,17 @@ const types = webTypes.contributions.html.tags
     (vm) =>
       vm.name +
       ": DefineComponent<{" +
-
       // Prop types:
       vm.attributes
         .map(
           (attr) =>
             getDescription(attr) +
-            `${attr.name.replace(/-./g, (x) => x[1].toUpperCase())}?: ${getPropType(attr)} | null`
+            `${attr.name.replace(/-./g, (x) =>
+              x[1].toUpperCase()
+            )}?: ${getPropType(attr)} | null`
         )
         .join("\n") +
       "}" +
-
       // Slot types:
       (vm.slots?.length
         ? ",{$scopedSlots: Readonly<{\n" +
@@ -114,8 +117,8 @@ const types = webTypes.contributions.html.tags
 
 console.log();
 
-console.log(
-  prettier.format(
+prettier
+  .format(
     `
 import type { DataTableHeader, DataOptions, CalendarTimestamp as VTimestamp } from 'vuetify'
 import type VueComponent from "vue"
@@ -147,4 +150,4 @@ export {}`,
       semi: false,
     }
   )
-);
+  .then((v) => console.log(v));
