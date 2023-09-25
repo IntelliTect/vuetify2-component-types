@@ -6832,6 +6832,11 @@ declare module "vue" {
           activator: (args: {
             on: { [eventName: string]: eventHandler }
             value: boolean
+            attrs: {
+              role: string
+              "aria-haspopup": boolean
+              "aria-expanded": string
+            }
           }) => VNode[]
           /** The default Vue slot. */
           default: undefined
