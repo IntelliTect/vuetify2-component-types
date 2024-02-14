@@ -10,15 +10,6 @@ const webTypes = JSON.parse(
 
 const tags = webTypes.contributions.html.tags;
 
-// https://github.com/vuetifyjs/vuetify/pull/18307
-// Remove it after Vuetify 2.7.2 released
-tags
-  .find((component) => component.name === "VDialog")
-  .slots[0]["vue-properties"].push({
-    name: "attrs",
-    type: "{ role: string, aria-haspopup: boolean, aria-expanded: string }",
-  });
-
 const blackList = ["VFlex", "VLayout"]; // Components not to define in global
 
 function convertType(typeStr) {
