@@ -740,6 +740,11 @@ declare module "vue" {
         $scopedSlots: Readonly<{
           /** When used, will activate the component when clicked (or hover for specific components). This manually stops the event propagation. Without this slot, if you open the component through its model, you will need to manually stop the event propagation */
           activator: (args: {
+            attrs: {
+              role: string
+              "aria-haspopup": boolean
+              "aria-expanded": string
+            }
             on: { [eventName: string]: eventHandler }
             value: boolean
           }) => VNode[]
@@ -769,7 +774,7 @@ declare module "vue" {
           /** The slot used for dividers. */
           divider: undefined
           /** The slot used to override default `v-breadcrumbs-item` behavior when using the **items** prop. */
-          item: (args: { item: any[] }) => VNode[]
+          item: (args: { item: any }) => VNode[]
         }>
       }
     >
@@ -6830,13 +6835,13 @@ declare module "vue" {
         $scopedSlots: Readonly<{
           /** When used, will activate the component when clicked (or hover for specific components). This manually stops the event propagation. Without this slot, if you open the component through its model, you will need to manually stop the event propagation */
           activator: (args: {
-            on: { [eventName: string]: eventHandler }
-            value: boolean
             attrs: {
               role: string
               "aria-haspopup": boolean
               "aria-expanded": string
             }
+            on: { [eventName: string]: eventHandler }
+            value: boolean
           }) => VNode[]
           /** The default Vue slot. */
           default: undefined
@@ -10824,6 +10829,11 @@ Use [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader) to generate au
         $scopedSlots: Readonly<{
           /** When used, will activate the component when clicked (or hover for specific components). This manually stops the event propagation. Without this slot, if you open the component through its model, you will need to manually stop the event propagation */
           activator: (args: {
+            attrs: {
+              role: string
+              "aria-haspopup": boolean
+              "aria-expanded": string
+            }
             on: { [eventName: string]: eventHandler }
             value: boolean
           }) => VNode[]
