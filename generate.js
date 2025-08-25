@@ -18,6 +18,9 @@ function convertType(typeStr) {
       return "any[]";
     case "function":
       return "Function";
+    case "Boolean":
+      // https://github.com/IntelliTect/vuetify2-component-types/issues/5
+      return "boolean";
     case "date":
       return "Date";
     case "regexp":

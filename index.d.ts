@@ -6856,7 +6856,7 @@ declare module "vue" {
         /** Event that fires when clicking outside an active dialog. */
         "click:outside": (arg0: MouseEvent) => void
         /** The updated bound model */
-        input: (arg0: Boolean) => void
+        input: (arg0: boolean) => void
         /** Event that fires when key is pressed. If dialog is active and not using the **persistent** prop, the **esc** key will deactivate it. */
         keydown: (arg0: KeyboardEvent) => void
       }
